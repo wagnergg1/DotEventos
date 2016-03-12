@@ -7,6 +7,7 @@ class ListaAtividades {
     Pessoa responsavel
     Date dataEntrega
     Dots dots
+    static hasMany = [listaObjetos:ObjetoLista]
 
     static constraints = {
         nomeListaAtividades nullable: false, blank: false

@@ -8,8 +8,10 @@ class ObjetoLista {
         Double custo
         String descricao
         String statusObjeto
+        ListaAtividades listaAtividades
 
-    static constraints = {
+        static hasMany = [contatos:Contato, endereco: Endereco]
+        static constraints = {
 
         nomeObjeto nullable: false, blank: false
         observacao nullable: true, blank: true
@@ -17,8 +19,7 @@ class ObjetoLista {
         dataEntrega nullable: false , blank: false
         descricao nullable: false, blank: false
         statusObjeto nullable: false , blank: false, inList: ["A Fazer","Fazendo","Concluido"]
-
-
+        listaAtividades nullable: false , blank: false
 
     }
 }
