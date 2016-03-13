@@ -1,27 +1,11 @@
 // Added by the Spring Security Core plugin:
-
-
-
-
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'seguranca.Usuario'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'seguranca.UsuarioPermissao'
 grails.plugin.springsecurity.authority.className = 'seguranca.Permissao'
-grails.plugin.springsecurity.password.algorithm = 'SHA-256'
-grails.plugin.springsecurity.adh.errorPage =    '/j_spring_segurity_logout'
-grails.plugin.springsecurity.securityConfigType = 'InterceptUrlMap'
-
-grails.plugin.springsecurity.interceptUrlMap =[
-       [pattern: '/inicial/index', access: ['ROLE_ADMIN']  ],
-       [pattern: '/**', access: ['IS_AUTHENTICATED_ANONYMOUSLY']
-
-
-]
-        ]
-
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         [pattern: '/', access: ['permitAll']],
         [pattern: '/error', access: ['permitAll']],
-        [pattern: '/index', access: ['ROLE_ADMIN']],
+        [pattern: '/index', access: ['permitAll']],
         [pattern: '/index.gsp', access: ['permitAll']],
         [pattern: '/shutdown', access: ['permitAll']],
         [pattern: '/assets/**', access: ['permitAll']],

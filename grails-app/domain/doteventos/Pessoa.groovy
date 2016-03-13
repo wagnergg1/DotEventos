@@ -1,9 +1,10 @@
 package doteventos
 
-class Pessoa {
+import seguranca.Usuario
+
+class Pessoa extends Usuario {
 
     String nome
-    String senha
     String email
     Date dataCadastro
     TipoPessoa tipoPessoa
@@ -14,9 +15,6 @@ class Pessoa {
 
         nome nullable: false, blank: false , size: 5..45
         email email:true , unique: true, blank: false, nullable: false
-        senha nullable: false, blank: false, size:6..10
         dataCadastro nullable: false, blank: false
-
-
-    }
+                    }
 }
