@@ -1,6 +1,9 @@
 package doteventos
 
+import java.security.Security
+
 class UrlMappings {
+
 
     static mappings = {
         "/$controller/$action?/$id?(.$format)?"{

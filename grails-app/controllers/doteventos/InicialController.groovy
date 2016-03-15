@@ -1,6 +1,11 @@
 package doteventos
 
-class InicialController {
+//import grails.plugin.springsecurity.annotation.Secured
 
-    def index() { }
+
+class InicialController {
+   // @Segured("ROLE_ADMIN")
+    def index() {
+        view :'inicial/index'
+    }
 }

@@ -1,28 +1,77 @@
 import doteventos.Pessoa
+import doteventos.TipoPessoa
+import org.apache.commons.lang.ObjectUtils
 import seguranca.Permissao
+import seguranca.UsuarioPermissao
 
 class BootStrap {
 
     def init = { servletContext ->
+        Permissao admin = Permissao.findByAuthority("ROLE_ADMIN")
+        if (admin == null){
+            admin = new Permissao(authority: "ROLE_ADMIM").save(flush:true)
 
-        Permissao organizador =Permissao.findByAuthority("ADMIN")
-            if (organizador == null){
-                organizador  new Permissao(authority: "ADMIN").save(flush:true)
-            }
-        Permissao usuario =Permissao.findByAuthority("USER")
+        }
+        Permissao usuario = Permissao.findByAuthority("ROLE_USER")
         if (usuario == null){
-            usuario  new Permissao(authority: "USER").save(flush:true)
-
-        Pessoa administrador = Pessoa.findByUsername("administrador")
-            if(administrador== null){
-                administrador new Pessoa(username:"admin", password: 'admin', nome: "Administrador" )
-
-            }
+            usuario = new Permissao(authority: "ROLE_USER").save(flush:true)
 
         }
 
+
+      TipoPessoa tipoPO = TipoPessoa.findByDescricao ("Organizador")
+        if (tipoPO == null){
+            tipoPO = new TipoPessoa(descricao: "Organizador").save(flush: true)
+        }
+        TipoPessoa tipoPC = TipoPessoa.findByDescricao ("Colaborador")
+        if (tipoPC == null){
+            tipoPC = new TipoPessoa(descricao: "Colaborador").save(flush: true)
+        }
+
+
+        Pessoa master = Pessoa.findByNome("Administrador")
+        if (master == null ){
+
+              master =  new Pessoa(
+                     nome: "Administrador",
+                     email: "master@doteventos.com.br",
+                     dataCadastro: new Date(),
+                     tipoPessoa: tipoPO,
+                     username : "Master",
+                     password: "dotmaster",
+                     passwordExpired: false ,
+                     accountExpired : false ,
+                     accountLocked : false ).save(flush:true)
+        }
+
+        UsuarioPermissao usuarioPermissao = UsuarioPermissao.findByUsuarioAndPermissao(master,admin)
+        if (usuarioPermissao == null){
+            usuarioPermissao = new UsuarioPermissao(
+                    usuario: master ,
+                    permissao: admin
+            ).save(flush: true)
+
+        }
 
     }
     def destroy = {
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
