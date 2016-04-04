@@ -1,15 +1,14 @@
 import doteventos.Pessoa
 import doteventos.TipoPessoa
-import org.apache.commons.lang.ObjectUtils
 import seguranca.Permissao
 import seguranca.UsuarioPermissao
 
 class BootStrap {
 
     def init = { servletContext ->
-        Permissao admin = Permissao.findByAuthority("ROLE_ADMIN")
+        Permissao admin = Permissao.findByAuthority("ROLE_ADM")
         if (admin == null){
-            admin = new Permissao(authority: "ROLE_ADMIM").save(flush:true)
+            admin = new Permissao(authority: "ROLE_ADM").save(flush:true)
 
         }
         Permissao usuario = Permissao.findByAuthority("ROLE_USER")
@@ -38,7 +37,7 @@ class BootStrap {
                      dataCadastro: new Date(),
                      tipoPessoa: tipoPO,
                      username : "Master",
-                     password: "dotmaster",
+                     password: "123456",
                      passwordExpired: false ,
                      accountExpired : false ,
                      accountLocked : false ).save(flush:true)
@@ -52,8 +51,7 @@ class BootStrap {
             ).save(flush: true)
 
         }
-
-    }
+            }
     def destroy = {
     }
 }

@@ -50,16 +50,21 @@
             <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
         </div>
     </div>
+<form role="form">
+    
+Try it Yourself »
 
-    <div id="content" role="main">
+
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+</button>
+
+<div id="content" role="main">
         <section class="row colset-2-its">
             <h1>DotEvento</h1>
 
             <p>
-                Congratulations, you have successfully started your first Grails application! At the moment
-                this is the default page, feel free to modify it to either redirect to a controller or display
-                whatever content you may choose. Below is a list of controllers that are currently deployed in
-                this application, click on each to execute its default action:
+                
             </p>
 
             <div id="controllers" role="navigation">

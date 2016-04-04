@@ -1,5 +1,4 @@
 package doteventos
-
 import seguranca.Usuario
 
 class Pessoa extends Usuario {
