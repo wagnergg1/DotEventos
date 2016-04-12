@@ -84,7 +84,7 @@ img {
 }
 
 .footer {
-    background: #48802c;
+    background: orange;
     color: #000;
     clear: both;
     font-size: 0.8em;
@@ -280,7 +280,7 @@ ul.one-to-many li.add {
 
 fieldset.embedded {
     background-color: transparent;
-    border: 1px solid #CCCCCC;
+    border: 1px solid #8e88cc;
     margin-left: 0;
     margin-right: 0;
     padding-left: 0;

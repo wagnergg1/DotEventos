@@ -9,6 +9,7 @@ dependencies:
 - file:/home/wagner/.gradle/caches/modules-2/files-2.1/org.grails.plugins/scaffolding/3.2.1/82b56d19aff8da7818a17e723c8a49f7499caf26/scaffolding-3.2.1.jar
 - file:/home/wagner/.gradle/caches/modules-2/files-2.1/org.grails.plugins/hibernate4/5.0.2/3966f58f6edf39bce6b35ac5e1de67f39f614e7e/hibernate4-5.0.2.jar
 - file:/home/wagner/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-ehcache/4.3.11.Final/cea0e6aba102c00cf899bd547c338fcf54468433/hibernate-ehcache-4.3.11.Final.jar
+- file:/home/wagner/.gradle/caches/modules-2/files-2.1/org.grails.plugins/ajax-tags/1.0.0/244768825b7a388347bb3ae9c4d2b3a34bc02631/ajax-tags-1.0.0.jar
 - file:/home/wagner/.gradle/caches/modules-2/files-2.1/org.grails.plugins/spring-security-core/3.0.4/6a6ff514ad468a9ae66690c78c68b1ae7d2db1b3/spring-security-core-3.0.4.jar
 - file:/home/wagner/.m2/repository/org/grails/plugins/twitter-bootstrap/3.3.4/twitter-bootstrap-3.3.4.zip
 - file:/home/wagner/.gradle/caches/modules-2/files-2.1/org.grails.plugins/asset-pipeline/3.0.15/2076efba1e7c0f38b60dcb6dd096f83857ada431/asset-pipeline-3.0.15.jar

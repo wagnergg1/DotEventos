@@ -19,3 +19,8 @@ if (typeof jQuery !== 'undefined') {
         });
     })(jQuery);
 }
+
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});

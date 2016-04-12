@@ -36,7 +36,7 @@ class BootStrap {
                      email: "master@doteventos.com.br",
                      dataCadastro: new Date(),
                      tipoPessoa: tipoPO,
-                     username : "Master",
+                     username : "master@doteventos.com.br",
                      password: "123456",
                      passwordExpired: false ,
                      accountExpired : false ,

@@ -6,10 +6,10 @@ import grails.plugin.springsecurity.annotation.Secured
 
 class InicialController {
 
-    @Secured(value = ['ROLE_ADM'], httpMethod = 'GET')
+    @Secured(value = ['ROLE_ADM'])
 	 	       def index() {
 
-    }
+   }
 
 
 }

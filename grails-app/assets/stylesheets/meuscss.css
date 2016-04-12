@@ -1,0 +1,17 @@
+.fundo{
+
+    background-image: url(dotnome.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    image-rendering: auto;
+}
+.minhaborda {
+    border: 1px solid #006dba;
+}
+
+.tamanho{
+    padding: 10px;
+}
+.navbar{
+
+}
