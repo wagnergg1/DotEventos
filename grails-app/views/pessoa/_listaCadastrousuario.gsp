@@ -10,12 +10,12 @@
         <th>Descrição</th>
         <th>Ação</th>
 
-    <g:each  in ="${pessoas}">
+    <g:each  var="usuario" in ="${pessoas}">
     </tr>
          <tr>
-            <td>${it.nome}</td>
-            <td>${it.email}</td>
-            <td>${it.tipoPessoa.descricao}</td>
+            <td>${usuario.nome}</td>
+            <td>${usuario.email}</td>
+            <td>${usuario.tipoPessoa.descricao}</td>
 
              <td class="text-right"><a href="/#" class="btn btn-sm btn-primary">alterar</a>
              </td>

@@ -4,7 +4,7 @@
     <meta name="layout" content="padrao"/>
     <asset:stylesheet src="meuscss.css"/>
           <div class="col-xs-12 text-right">
-               <g:remoteLink controller="pessoa" action="novo"  update="divFormulario" >
+               <g:remoteLink controller="pessoa" action="novo" model="[usuario:]" update="divFormulario" >
 
                     <button type="button" class="btn btn-danger  right" data-toggle="modal" data-target="#myModal">
                        <span class="glyphicon glyphicon-plus-sign"> Adicionar</span>
@@ -16,7 +16,7 @@
 
             </div>
 
-    <div id="divFormulario"></div>
+    <div id="divFormulario1"></div>
 
 
 
@@ -36,7 +36,7 @@
                 </div>
                 <div class="modal-body"  >
                     <div>
-                    <div id="divFormulario1" class="col-xs-12">
+                    <div id="divFormulario" class="col-xs-12">
 
                     </div>
                     </div>

@@ -9,7 +9,7 @@ class Pessoa extends Usuario {
     TipoPessoa tipoPessoa
 
     static  hasMany = [ pessoaEvento: Pessoa_has_Evento, listaAtividade: ListaAtividades]
-
+    static belongsTo = [TipoPessoa]
     static constraints = {
 
         nome nullable: false, blank: false , size: 5..45
