@@ -16,5 +16,6 @@ class Pessoa extends Usuario {
         email email:true , unique: true, blank: false, nullable: false
         dataCadastro nullable: false, blank: false
         tipoPessoa nullable: false
+
                     }
 }

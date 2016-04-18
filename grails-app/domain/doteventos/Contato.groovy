@@ -12,6 +12,7 @@ class Contato {
         emial email: true
         site url: true
         contato nullable: false , blank: false
+        telefone nullable: true , blank: true
 
     }
 }

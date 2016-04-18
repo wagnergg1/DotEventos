@@ -1,5 +1,5 @@
 
-    <h2 class="text-center">                Cadastro de Usuários</h2>
+    <h2 class="text-center">Cadastro de Usuários</h2>
 <div class="panel panel-default">
 <div class="table-responsive">
 
@@ -17,14 +17,23 @@
             <td>${usuario.email}</td>
             <td>${usuario.tipoPessoa.descricao}</td>
 
-             <td class="text-right"><a href="/#" class="btn btn-sm btn-primary">alterar</a>
-             </td>
+             <td class="text-right">
 
-        </g:each>
+
+                 <button  type="button" class="btn btn-primary  right" data-toggle="modal" data-target="#myModal" onclick="getuser('${usuario.id}')">
+                     <span class="glyphicon glyphicon-edit"> </span>
+                 </button>
+
+
+           </td>
+
+
             </tr>
+    </g:each>
 
 
+</table>
 
+</div>
 
-
-</table></div></div>
+    </div>
