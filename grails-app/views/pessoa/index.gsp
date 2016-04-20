@@ -7,8 +7,7 @@
     <asset:stylesheet src="meuscss.css"/>
 </head>
           <div class="col-xs-12 text-right">
-
-                    <button type="button" class="btn btn-danger  right" data-toggle="modal" data-target="#myModal" onclick="limparFrom()">
+                       <button type="button" class="btn btn-danger  right" data-toggle="modal" data-target="#myModal" onclick="limparFrom()">
                        <span class="glyphicon glyphicon-plus-sign"> Adicionar</span>
                    </button>
 

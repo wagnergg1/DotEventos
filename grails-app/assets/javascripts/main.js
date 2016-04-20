@@ -1,6 +1,9 @@
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip()
-   carregarListaUsuarios()
+     carregarListaUsuarios();
+    $("#div1").draggable()
+
+    )
 })
 
 
@@ -60,11 +63,14 @@ function retornoSalvarPessoa(data){
                 $("input[name=email]").val("")
                 $("input[name=senha]").val("")
                 $("#inlineRadio2 input[name=tipodepessoa]").prop('checked',true)
+                $("input[name=id]").val("")
 
 
 
         }else {
-            $("#resposta").html("<H4 class='text-danger text-center'>Erro ao Salvar.</H4>")
+                console.log(data)
+                var erro =(data.tipoErro.message)
+            $("#resposta").html("<H4 class='text-danger text-center'>Erro ao Salvar.</H4>  <p>+erro+</p>")
 
 
         }

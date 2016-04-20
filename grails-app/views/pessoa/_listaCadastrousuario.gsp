@@ -20,7 +20,7 @@
              <td class="text-right">
 
 
-                 <button  type="button" class="btn btn-primary  right" data-toggle="modal" data-target="#myModal" onclick="getuser('${usuario.id}')">
+                 <button  type="button" class="btn btn-success  right" data-toggle="modal" data-target="#myModal" data-toggle="tooltip" title="Alterar" data-placement="left" onclick="getuser('${usuario.id}')">
                      <span class="glyphicon glyphicon-edit"> </span>
                  </button>
 
