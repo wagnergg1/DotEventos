@@ -1,10 +1,9 @@
 .fundo{
+padding: 10px;
+    background-image: url(pontilhado.png);
+    border-radius: 20px;
 
-    background-image: url(dotnome.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    image-rendering: auto;
-}
+    }
 .minhaborda {
     border: 1px solid #006dba;
 }
@@ -20,10 +19,16 @@
     width: 200px;
     height:200px;
     padding: 10px;
-    border-radius: 48% ;
-    border: 3px;
-    border-color: orange;
-   background-color: #00c0ef;
+    border-radius: 50% ;
+        border: dotted #e3a721;
     margin :10px;
     position:relative;
+}
+.botaoDot{
+    float:right;
+    font-size: large;
+    padding:5px;
+    width: 60px;
+    height: 30px;
+    border-radius: 9px;
 }

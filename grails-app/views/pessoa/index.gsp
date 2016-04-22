@@ -3,17 +3,15 @@
 <head>
     <meta name="layout" content="padrao"/>
 
-
     <asset:stylesheet src="meuscss.css"/>
+
+
 </head>
-          <div class="col-xs-12 text-right">
-                       <button type="button" class="btn btn-danger  right" data-toggle="modal" data-target="#myModal" onclick="limparFrom()">
-                       <span class="glyphicon glyphicon-plus-sign"> Adicionar</span>
-                   </button>
 
-
-
-
+          <div class="col-xs-12  text-right fundo ">
+                       <div type="button" class="  botaoDot btn-primary text-center "  title="Adicionar" data-toggle="modal" data-target="#myModal" onclick="limparFrom()">
+                       <span class="glyphicon glyphicon-plus-sign"> </span>
+                  </div>
 
             </div>
 
@@ -23,7 +21,7 @@
 
 
     <div id="divlista">
-
+            <g:render template="listaCadastrousuario" model="[pessoas:pessoas]"></g:render>
             </div>
 
 
@@ -48,10 +46,7 @@
             </div>
         </div>
     </div>
-        <div>
 
-
-        </div>
 
 
 

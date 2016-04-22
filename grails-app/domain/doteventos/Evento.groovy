@@ -2,7 +2,7 @@ package doteventos
 
 class Evento {
     String nome
-    Date    data
+    Date   data
     String descricao
     Pessoa organizador
     //byte[] avatar

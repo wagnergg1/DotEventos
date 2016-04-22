@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="849931951">
-    <data-source source="LOCAL" name="MySQL - DotEventos@localhost" uuid="416772a3-62d9-409e-9b2e-52b7cae85d31">
+  <component name="DataSourceManagerImpl" format="xml" hash="303448163">
+    <data-source source="LOCAL" name="MySQL - DotEventos@localhost" uuid="931ed091-9d8a-4450-9afc-dfb5e7f305fc">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
+      <configured-by-url>true</configured-by-url>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/DotEventos</jdbc-url>
       <driver-properties>

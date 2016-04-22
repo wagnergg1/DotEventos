@@ -1,10 +1,4 @@
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip()
-     carregarListaUsuarios();
-    $("#div1").draggable()
 
-    )
-})
 
 
 function carregarListaUsuarios(){
@@ -69,14 +63,41 @@ function retornoSalvarPessoa(data){
 
         }else {
                 console.log(data)
-                var erro =(data.tipoErro.message)
-            $("#resposta").html("<H4 class='text-danger text-center'>Erro ao Salvar.</H4>  <p>+erro+</p>")
+
+            $("#resposta").html("<H4 class='text-danger text-center'>Erro ao Salvar.</H4>  ")
 
 
         }
 
 }
 
+function deluser(id)
+{
+    if(confirm("Confirma a Exclusão do Usuário")){
+    $.ajax({
+            method: "POST",
+            url: "excluir",
+            data: {"id": id},
+            success: function (data) {
+                if (data.mensagem=="OK"){
+                    carregarListaUsuarios()
+
+                }else{
+                    alert("Não foi possível excluir usuário")
+                }
+
+
+
+
+
+
+
+                          }
+        }
+
+
+    )}
+}
 function limparFrom(){
 
     $("input[name=nome]").val("")

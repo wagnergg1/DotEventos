@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<body>
 <head>
     <meta name="layout" content="padrao"/>
     <asset:stylesheet src="meuscss.css"/>

@@ -13,18 +13,37 @@
     <asset:stylesheet src="meuscss.css"/>
 </head>
         <div class="row">
-        <div class="col-xs-12 ">
-            <script type="text/javascript">
+            <div class="col-xs-12  text-right fundo ">
+                <div type="button" class="  botaoDot btn-primary text-center "  title="Adicionar" data-toggle="modal" data-target="#myModal" onclick="limparFrom()">
+                    <span class="glyphicon glyphicon-plus-sign"> </span>
+                </div>
 
-            </script>
-            <div id="div1" class="divevento  col-xs-12 "></div>
-
-
-            <div class="divevento col-xs-12 " ></div>
-
-        </div>
-
-        </div>
             </div>
+
+        </div>
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-center" id="myModalLabel">Evento</h4>
+            </div>
+            <div class="modal-body"  >
+                <div>
+                    <div id="divFormulario" class="col-xs-12">
+                        <g:render template="formularioevento" model="evento: evento"></g:render>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="fecharC" data-dismiss="modal" >fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 </html>
