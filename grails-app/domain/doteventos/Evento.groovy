@@ -5,7 +5,8 @@ class Evento {
     Date   data
     String descricao
     Pessoa organizador
-    //byte[] avatar
+    byte[] imagem
+    String imagemType
 
 
     static hasMany = [pessoaEvento: Pessoa_has_Evento, dots : Dots]
@@ -14,7 +15,7 @@ class Evento {
         nome nullable: false , blank: false , maxSize: 100
         descricao nullable: false, blank: false, maxSize: 300
         organizador nullable: false, blank:false
-       // avatar size: 0..1310172 , nulable : false
-
-    }
+        imagem nullable:  true , maxSize: 201616384
+        imagemType nullable: true
+         }
 }

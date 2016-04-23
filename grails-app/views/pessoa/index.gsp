@@ -8,11 +8,15 @@
 
 </head>
 
-          <div class="col-xs-12  text-right fundo ">
+          <div class="col-xs-12  text-right  ">
+
                        <div type="button" class="  botaoDot btn-primary text-center "  title="Adicionar" data-toggle="modal" data-target="#myModal" onclick="limparFrom()">
                        <span class="glyphicon glyphicon-plus-sign"> </span>
                   </div>
+              <div id=>
 
+
+              </div>
             </div>
 
     <div id="divFormulario1"></div>

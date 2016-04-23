@@ -14,7 +14,7 @@
 </head>
         <div class="row">
             <div class="col-xs-12  text-right fundo ">
-                <div type="button" class="  botaoDot btn-primary text-center "  title="Adicionar" data-toggle="modal" data-target="#myModal" onclick="limparFrom()">
+                <div type="button" class="  botaoDot btn-primary text-center "  title="Adicionar" data-toggle="modal" data-target="#myModal" onclick="limparFormEvento()">
                     <span class="glyphicon glyphicon-plus-sign"> </span>
                 </div>
 

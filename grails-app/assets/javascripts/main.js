@@ -108,3 +108,38 @@ function limparFrom(){
 
 
 }
+
+//-----------------------------------Eventos ---------------------------------------------------------------------
+
+function retornoSalvarEvento(data){
+    if(data.mensagem =='Ok'){
+
+
+        $("#respostaevento").html("<h4 class='text-success text-center'>Salvo com sucesso.</h4>")
+
+
+        $("input[name=nome]").val("")
+        $("input[name=data]").val("")
+        $("input[name=descricao]").val(null)
+        $("input[name=avatar]").val("")
+
+
+
+    }else {
+        console.log(data)
+
+        $("#respostaevento").html("<H4 class='text-danger text-center'>Erro ao Salvar.</H4>  ")
+
+
+    }
+
+}
+
+function limparFormEvento(){
+    $("input[name=nome]").val("")
+    $("input[name=data]").val("")
+    $("input[name=descricao]").val("").blur()
+    $("input[name=avatar]").val("")
+
+
+}

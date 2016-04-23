@@ -1,5 +1,5 @@
 <div class="Col-xs-10 col-lg-offset-1" >
-    <g:formRemote id="frmevento" name="frmevento"  url="[controller: 'evento', action: 'salvar']" enctype="multipart/form-data" onSuccess="retornoSalvarPessoa(data)" >
+    <g:uploadForm id="frmevento" name="frmevento"  url="[controller: 'evento', action: 'salvar']"  enctype="multipart/form-data" onSuccess="retornoSalvarEvento(data)"  >
 
 
         <p/><p/>
@@ -9,30 +9,38 @@
             <input type="text" class="form-control" id="nomeevento" placeholder="Nome" name="nome" value="" autocomplete="off"/>
         </div>
 
-
         <div class="form-group ">
 
 
+            <div class='form-group date'>
+                <input type="datetime-local" class="form-control " id="dataevento2" placeholder="Data" name="data"/>
 
-            <input type="date" class="form-control " id="dataevento" placeholder="Data" name="data" value="" autocomplete="off"/>
-
+            </div>
         </div>
-        <g:textArea  rows="9" class="form-control" name="descricao" placeholdel="Descreva seu Evento"  value="" autocomplete="off"></g:textArea>
+
+
+
+
+
+        <g:textArea  rows="9" class="form-control blockTextarea " name="descricao"   ></g:textArea>
 
         <hr>
 
-            <f:field property="Imagem">
                 <input id="avatar" name="avatar" type="file">
-            </f:field>
+
+
 
         <input type="hidden" name="id" value=""/>
         <div class="text-right">
-            <button type="submit" class ="btn btn-sm right btn-success" >Salvar</button>
+            <button type="submit" class ="btn btn-sm right btn-primary from-control"  >Salvar</button>
         </div>
-        <div id="resposta" ></div>
+        <div id="respostaevento" >
+        </div>
 
 
 
 
-    </g:formRemote>
+    </g:uploadForm>
+
 </div>
+

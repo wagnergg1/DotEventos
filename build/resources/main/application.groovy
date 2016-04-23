@@ -7,7 +7,7 @@ grails.plugin.springsecurity.authority.className = 'seguranca.Permissao'
 grails.plugin.springsecurity.password.algorithm = 'SHA-256'
 grails.plugin.springsecurity.securityConfigType = "Annotation"
 grails.plugin.springsecurity.logout.postOnly = false
-
+grails.plugin.springsecurity.SpringSecurityService
 //
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         [pattern: '/', access: ['permitAll']],
