@@ -5,17 +5,18 @@ class Evento {
     Date   data
     String descricao
     Pessoa organizador
-    byte[] imagem
     String imagemType
+    byte[] imagem
+
 
 
     static hasMany = [pessoaEvento: Pessoa_has_Evento, dots : Dots]
 
     static constraints = {
-        nome nullable: false , blank: false , maxSize: 100
-        descricao nullable: false, blank: false, maxSize: 300
+        nome nullable: false , blank: false , maxSize: 30
+        descricao nullable: true, blank: true, maxSize: 200
         organizador nullable: false, blank:false
-        imagem nullable:  true , maxSize: 201616384
-        imagemType nullable: true
+        imagemType nullable: false
+        imagem     nullable: false, maxSize:1000000000
          }
 }

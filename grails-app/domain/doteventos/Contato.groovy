@@ -9,7 +9,7 @@ class Contato {
 
 
     static constraints = {
-        emial email: true
+        email email: true
         site url: true
         contato nullable: false , blank: false
         telefone nullable: true , blank: true

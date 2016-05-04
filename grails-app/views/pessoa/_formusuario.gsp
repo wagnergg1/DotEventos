@@ -8,7 +8,7 @@
 
                             <div class="form-group">
                                 <label for="nomeUsuario">Nome</label>
-                                <input type="text" class="form-control" id="nomeUsuario" placeholder="Nome" name="nome" value="" autocomplete="off"/>
+                                <input type="text" class="form-control" id="nomeUsuario" placeholder="Nome" name="nome" value="" required="true" autocomplete="off"/>
                             </div>
 
 
@@ -30,7 +30,7 @@
                                <hr/>
                                       <div class="form-group">
                                    <label for="exampleInputPassword1">Password</label>
-                                   <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="senha" value="" autocomplete="off"/>
+                                   <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="senha" required="true" value="" autocomplete="off"/>
                                </div>
                                <input type="hidden" name="id" value=""/>
                                <div class="text-right">

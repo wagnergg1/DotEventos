@@ -17,7 +17,7 @@ dataSource:
 environments:
     development:
         dataSource:
-            dbCreate: create-drop
+            dbCreate: update
             url: "jdbc:mysql://localhost/DotEventos"
             username: "root"
             password:  "0903406"
@@ -81,6 +81,9 @@ grails:
             maxsize: 1000
     controllers:
         defaultScope: singleton
+        upload :
+            maxFileSize: 99999999999
+            maxRequestSize: 99999999999
     converters:
         encoding: UTF-8
     views:

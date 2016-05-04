@@ -64,7 +64,7 @@ function retornoSalvarPessoa(data){
         }else {
                 console.log(data)
 
-            $("#resposta").html("<H4 class='text-danger text-center'>Erro ao Salvar.</H4>  ")
+            $("#resposta").html("<H4 class='text-danger text-center'>Erro ao Salvar. "+data.tipoErro.errors[0,0].message+"</H4>  ")
 
 
         }
@@ -86,12 +86,6 @@ function deluser(id)
                     alert("Não foi possível excluir usuário")
                 }
 
-
-
-
-
-
-
                           }
         }
 
@@ -112,7 +106,8 @@ function limparFrom(){
 //-----------------------------------Eventos ---------------------------------------------------------------------
 
 function retornoSalvarEvento(data){
-    if(data.mensagem =='Ok'){
+
+    if(data.mesagemEvento =='Ok'){
 
 
         $("#respostaevento").html("<h4 class='text-success text-center'>Salvo com sucesso.</h4>")
@@ -120,15 +115,15 @@ function retornoSalvarEvento(data){
 
         $("input[name=nome]").val("")
         $("input[name=data]").val("")
-        $("input[name=descricao]").val(null)
+        $("input[name=descricao]").val(null).blur()
         $("input[name=avatar]").val("")
 
 
 
     }else {
-        console.log(data)
 
-        $("#respostaevento").html("<H4 class='text-danger text-center'>Erro ao Salvar.</H4>  ")
+
+        $("#respostaevento").html("<H4 class='text-danger text-center'>Erro ao Salvar. </H4>  ")
 
 
     }
@@ -141,5 +136,209 @@ function limparFormEvento(){
     $("input[name=descricao]").val("").blur()
     $("input[name=avatar]").val("")
 
+
+}
+
+
+function getevento(id){
+
+
+    $.ajax({
+            method: "POST",
+            url: "getEvento",
+            data: {"id": id},
+            success: function (data) {
+                console.log(data)
+
+                var a = ""+data.data+""
+                var dt= a.substring(0, 19)
+                $( "input[name=nome]").val(data.nome)
+                $("input[name=id]").val(data.id)
+                $("textarea[name=descricao]").val(data.descricao)
+                $("input[name=data]").val(dt)
+
+            }
+        }
+
+
+    )
+}
+
+function delevento(id)
+{
+    if(confirm("Confirma a Exclusão do Evento")){
+        $.ajax({
+                method: "POST",
+                url: "excluir",
+                data: {"id": id},
+                success: function (data) {
+                    if (data.mensagem=="OK"){
+                        carregarListaeventos()
+
+                    }else{
+                        alert("Não foi possível excluir usuário")
+                    }
+                }
+            }
+
+
+        )}
+}
+
+function carregarListaeventos(){
+    $.ajax({
+            method: "POST",
+            url :   "listarEvento",
+            data : { },
+            success: function(data){
+              console.log(data)
+
+            }
+        }
+
+
+    )
+
+}
+function abrirDots(id){
+    $.ajax({
+        method: "POST",
+        url: "/dot/index",
+        data: {"id": id},
+         })
+        }
+
+//----------------------Tipo dot
+
+function getdot(id){
+
+
+    $.ajax({
+            method: "POST",
+            url: "gettipodot",
+            data: {"id": id},
+            success: function (data) {
+                console.log(data)
+
+                $( "input[name=nome]").val(data.nome)
+                $("input[name=id]").val(data.id)
+                $("textarea[name=descricao]").val(data.descricao)
+
+            }
+        }
+
+
+    )
+}
+
+
+
+function deltipodot(id)
+{
+    if(confirm("Confirma a Exclusão do Tipo Evento")){
+        $.ajax({
+                method: "POST",
+                url: "excluir",
+                data: {"id": id},
+                success: function (data) {
+                    console.log(data)
+                    if (data.mensagem=="Ok"){
+                        carregarListatipodot()
+
+                    }else{
+                        alert("Não foi possível excluir usuário")
+                    }
+
+                }
+            }
+
+
+        )}
+}
+
+function carregarListatipodot(){
+    $.ajax({
+            method: "POST",
+            url :   "listartipodot",
+            data : { },
+            success: function(data){
+                $("#listaTipodot").html(data)
+
+            }
+        }
+
+
+    )
+
+}
+
+
+function retornoSalvartipodot(data){
+    console.log(data)
+    if(data.mensagem =='Ok'){
+
+        $("input[name=nome]").val("")
+        $("textarea[name=descricao]").val("").blur()
+
+        carregarListatipodot()
+
+    }else {
+
+
+
+    }
+
+}
+function gettipodot(id){
+
+
+    $.ajax({
+            method: "POST",
+            url: "gettipodot",
+            data: {"id": id},
+            success: function (data) {
+                console.log(data)
+
+                $("input[name=nome]").val(data.nome)
+                $("textarea[name=descricao]").val(data.descricao)
+                $("input[name=id]").val(data.id)
+
+            }
+        }
+
+
+    )
+}
+
+//-------------------------Dot-------------
+
+function addcolab(p , e){
+    $.ajax({
+            type: "POST",
+            url :  "/dot/addcolaborador",
+            data : {"e":e, "p":p ,"id":e},
+            success: function(data){
+                carregarcolaborador(e)
+            }
+        }
+
+
+    )
+
+}
+
+function carregarcolaborador(e){
+    $.ajax({
+            method: "POST",
+            url :   "/dot/carregarcolaborador",
+            data : {"e":e },
+            success: function(data){
+                $("#colaborador").html(data)
+
+            }
+        }
+
+
+    )
 
 }
