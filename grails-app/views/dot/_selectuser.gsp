@@ -18,7 +18,7 @@
                     <td>${it.tipoPessoa.descricao}</td>
 
                     <td class="text-right">
-                        <button class="btn BTN-DANGER " data-toggle="tooltip" title="Adicionar" data-placement="left" onclick="addcolab(${it.id},${evento.id})" >
+                        <button class="btn BTN-DANGER " onclick="addcolab(${it.id},${evento.id})" >
                         <span class="glyphicon GLYPHICON-USER"/>
                         </button>
                     </td>

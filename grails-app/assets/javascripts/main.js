@@ -312,18 +312,15 @@ function gettipodot(id){
 
 //-------------------------Dot-------------
 
-function addcolab(p , e){
+function addcolab(p, e){
     $.ajax({
             type: "POST",
             url :  "/dot/addcolaborador",
-            data : {"e":e, "p":p ,"id":e},
-            success: function(data){
-                carregarcolaborador(e)
-            }
+            data : {"p":p, "id":e},
+        success: function(data){
+            $("#colaborador").html(data)
         }
-
-
-    )
+        })
 
 }
 
@@ -332,13 +329,31 @@ function carregarcolaborador(e){
             method: "POST",
             url :   "/dot/carregarcolaborador",
             data : {"e":e },
-            success: function(data){
-                $("#colaborador").html(data)
+         success: function(data){
+            $("#colaborador").html(data)
 
-            }
+        }
         }
 
 
     )
+
+}
+function removecolab(p,e){
+    $.ajax({
+
+        method : "POST",
+        url : "/dot/removeuser",
+
+        data : {"p":p , "id":e},
+
+        success: function(data){
+            $("#colaborador").html(data)
+
+        }
+
+
+
+    })
 
 }

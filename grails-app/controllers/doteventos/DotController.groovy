@@ -7,27 +7,28 @@ import org.hibernate.criterion.CriteriaSpecification
 
 class DotController {
 
-    @Secured(value = ['ROLE_ADM', 'ROLE_USER'])
-    def index(){
-                def id = params.id
+    def springSecurityService
 
-                def pesadd = Pessoa.createCriteria().list{
+    @Secured(value = ['ROLE_ADM', 'ROLE_USER'])
+
+
+
+    def index(){
+                 def pesadd = Pessoa.createCriteria().list{
                     ne("id",1l)
                 }
-              if (id){
-
-                Evento evento = Evento.get(id)
+                Evento evento = Evento.get(params.id)
                 def pe = Pessoa_has_Evento.createCriteria().list {
                     eq("evento", evento)}
                render(view: 'index' , model: [evento:evento, pessoaeve :pe.pessoa, pessoasadd:pesadd])
-                } }
+                }
 
 
         def carregarcolaborador(){
 
-            println("entrou")
-                        Evento eve = Evento.get(params.e)
-                        println (eve)
+
+                        Evento eve = Evento.get(params.id)
+
             def pee = Pessoa_has_Evento.createCriteria().list {
                 eq("evento", eve)}
             def list = pee.pessoa
@@ -38,30 +39,41 @@ class DotController {
 
     def removeuser() {
      def retorno =[:]
+
+
         Pessoa xpes = new Pessoa()
-        xpes= Pessoa.get(params.pes)
+        xpes= Pessoa.get(params.p)
         Evento xeve = new Evento()
-        xeve = Evento.get(params.eve)
+        xeve = Evento.get(params.id)
         def  excluir = Pessoa_has_Evento.findByEventoAndPessoa(xeve,xpes)
 
         try {
             excluir.delete(flush: true)
             retorno["mensagem"] = "OK"
         } catch (Exception ex) {
-            retorno["mensagem"] = "erro"
 
         }
-        redirect(action: index(),id: params.eve)
+
+        def pesadd = Pessoa.createCriteria().list{
+            ne("id",1l)
+        }
+        def pe = Pessoa_has_Evento.createCriteria().list {
+            eq("evento", xeve)}
+
+
+            render(template: "adduser" , model: [pessoaeve :pe.pessoa , evento:xeve, pessoasadd:pesadd])
          }
+
 
         def addcolaborador(){
              def ret =[:]
+
             Pessoa xpes = new Pessoa()
             xpes= Pessoa.get(params.p)
             Evento xeve = new Evento()
-            xeve = Evento.get(params.e)
+            xeve = Evento.get(params.id)
             def  valida = Pessoa_has_Evento.findByEventoAndPessoa(xeve,xpes)
-            println(valida)
+
             if(valida){
                 ret["resposta"]='Já participa do Evento'
                  }else {
@@ -70,10 +82,21 @@ class DotController {
                 adicionar.evento=xeve
                 adicionar.statusConvite="0"
                 adicionar.save(flush: true)
+
                 ret["resposta"]="Incluido"
             }
 
-            redirect(action: index(),id: params.eve)
+
+            def pesadd = Pessoa.createCriteria().list{
+                ne("id",1l)
+            }
+            def pe = Pessoa_has_Evento.createCriteria().list {
+                eq("evento", xeve)}
+
+
+            render(template: "adduser" , model: [pessoaeve :pe.pessoa , evento:xeve, pessoasadd:pesadd])
+
+
         }
 
 }//fim
