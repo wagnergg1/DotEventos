@@ -4,7 +4,6 @@ class Dots {
     String nomeDot
     Date dataCadastro
     Date dataEntrega
-    String nivel
     Dots pai
     Evento evento
     TipoDot tipoDot
@@ -15,7 +14,6 @@ class Dots {
         nomeDot nullable: false , blank:  false
         dataCadastro nullable: false , blank: false
         dataEntrega nullable: false , blank: false
-        nivel nullable: true , blank: true
         tipoDot nullable: true, blank: true
         imagemType nullable: false
         imagem     nullable: false, maxSize:1000000000

@@ -7,10 +7,8 @@
 </head>
 
         <div class="row">
-            <div class="col-xs-12  text-right fundo ">
-                <sec:ifAllGranted roles='ROLE_ADM'>  <div type="button" class="  botaoDot btn-primary text-center "  title="Adicionar" data-toggle="modal" data-target="#myModal" onclick="limparFormEvento()">
-                    <span class="glyphicon glyphicon-plus-sign"> </span>
-                </div></sec:ifAllGranted>
+            <div class="col-xs-12  text-right fundo tamanho">
+
             </div>
 
             <!----Corpo-v------------>

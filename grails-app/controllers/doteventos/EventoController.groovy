@@ -38,8 +38,7 @@ class EventoController {
     def salvar() {
 
         def user = springSecurityService.currentUser
-        println user
-        def retorno = [:]
+         def retorno = [:]
         String formato = "yyyy-MM-dd'T'hh:mm"
         def arquivo = request.getFile('avatar')
         Evento evento
@@ -94,36 +93,22 @@ class EventoController {
     }
 
     def excluir() {
-        def retorno = [:]
+
         Evento evento = Evento.get(params.id)
         try {
-
             evento.delete(flush: true)
-            retorno["mensagem"] = "OK"
         } catch (Exception ex) {
-            retorno["mensagem"] = "erro"
+
 
         }
-
-        render retorno as JSON
-
+        def listaeve = Evento.createCriteria().list {
+            order("data")
+        }
+        render(template: "listaEvento", model:[eventos: listaeve])
 
     }
-    def novodot(Evento evento){
+    def DotF(){
 
-        Dots primeiro = new Dots()
-        primeiro.dataCadastro = new Date()
-        primeiro.dataEntrega = evento.data
-        primeiro.nomeDot = evento.nome
-        primeiro.nivel ='0'
-        primeiro.evento = evento
-        primeiro.validate()
-            if(!primeiro.hasErrors){
-                primeiro.save(flush: true)
-
-            }else {
-            println primeiro.errors
-    }
 
     }
 

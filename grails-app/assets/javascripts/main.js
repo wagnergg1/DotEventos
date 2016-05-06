@@ -171,14 +171,10 @@ function delevento(id)
                 method: "POST",
                 url: "excluir",
                 data: {"id": id},
-                success: function (data) {
-                    if (data.mensagem=="OK"){
-                        carregarListaeventos()
 
-                    }else{
-                        alert("Não foi possível excluir usuário")
-                    }
-                }
+                success: function (data) {
+                    if(data.mensagem="ok")
+                    $("#divlistaevento").html(data)           }
             }
 
 
@@ -203,12 +199,12 @@ function carregarListaeventos(){
 function abrirDots(id){
     $.ajax({
         method: "POST",
-        url: "/dot/index",
+        url: "/dots/index",
         data: {"id": id},
          })
         }
 
-//----------------------Tipo dot
+//----------------------Tipo dots
 
 function getdot(id){
 
@@ -246,7 +242,7 @@ function deltipodot(id)
                         carregarListatipodot()
 
                     }else{
-                        alert("Não foi possível excluir usuário")
+                        alert("Não foi possível excluir Dot")
                     }
 
                 }
@@ -315,7 +311,7 @@ function gettipodot(id){
 function addcolab(p, e){
     $.ajax({
             type: "POST",
-            url :  "/dot/addcolaborador",
+            url :  "/dots/addcolaborador",
             data : {"p":p, "id":e},
         success: function(data){
             $("#colaborador").html(data)
@@ -327,7 +323,7 @@ function addcolab(p, e){
 function carregarcolaborador(e){
     $.ajax({
             method: "POST",
-            url :   "/dot/carregarcolaborador",
+            url :   "/dots/carregarcolaborador",
             data : {"e":e },
          success: function(data){
             $("#colaborador").html(data)
@@ -343,7 +339,7 @@ function removecolab(p,e){
     $.ajax({
 
         method : "POST",
-        url : "/dot/removeuser",
+        url : "/dots/removeuser",
 
         data : {"p":p , "id":e},
 

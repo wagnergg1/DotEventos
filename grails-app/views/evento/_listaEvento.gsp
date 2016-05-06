@@ -1,4 +1,12 @@
 
+<div class="row tamanho">
+<sec:ifAllGranted roles='ROLE_ADM'>
+        <button type="button" class="btn btn-primary " title="Adicionar" data-toggle="modal" data-target="#myModal" onclick="limparFormEvento()">
+                    <span class="glyphicon glyphicon-plus-sign"> </span>
+        </button>
+</sec:ifAllGranted>
+</div>
+
 <g:each   in ="${eventos}">
 
         <div class="hoverzoom col-xs-12 divevento" >
@@ -42,9 +50,9 @@
 
 
                         <div class="row">
-
-                                <g:link  controller="dot" action="index" id="${it.id}" data-toggle="tooltip" title="Dot's"  class=" btn right"><spam class="glyphicon glyphicon-share"></spam> Dot</g:link>
-                             
+                                <div class="col-xs-12">
+                                <g:link controller="dots" action="index" id="${it.id}" data-toggle="tooltip" title="Dot's" class=" btn right"><spam class="glyphicon glyphicon-share"></spam> Dot</g:link>
+                                </div>
                         </div>
 
         </div>
