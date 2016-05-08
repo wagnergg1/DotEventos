@@ -19,14 +19,12 @@
                 </div>
                     <sec:ifLoggedIn>
 
-                    <ul >
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
 
-                        <li class="controller text-success " style>
-                            <g:link class="text-success" controller="${c.logicalPropertyName}">${c.fullName}</g:link>
 
-                    </g:each>
-                </ul>
+
+
+
+
                     </sec:ifLoggedIn>
 
         </section>

@@ -15,14 +15,21 @@
             </div>
 
 
+</div>
+<div class="row tamanho">
 
+    <g:link controller="evento" action="index" >
+        <spam class="glyphicon glyphicon-backward"></spam> Eventos
+    </g:link>
+
+</div>
     <!----Corpo-v------------>
     <div class="navbar">
 
     <ul class="nav nav-tabs" role="tablist">
         <li><a href="#dots" data-toggle="tab">Dots</a></li>
-        <li><a href="#lista" data-toggle="tab">Lista</a> </li>
         <li><a href="#colaborador" data-toggle="tab">Colaboradores</a></li>
+        <li><a href="#Mapa" data-toggle="tab">Mapa</a></li>
 
     </ul>
 
@@ -39,26 +46,26 @@
             <g:render template="adduser" model="pessoas : pessoas"></g:render>
             
         </div>
+        <div role="tabpanel" class="tab-pane" id="Mapa">
+            <div class="container tamanho">
+                  <g:img dir="images" file="mapas.jpg" class="img-responsive"/>
+            </div>
 
-        <div role="tabpanel" class="tab-pane" id="lista">
 
-        <g:datePicker type="datetime-local" name="teste"></g:datePicker>
+    </div>
 
         </div>
 
-    </div>
+
+
+
+
 
 
 
 </div>
 
-
-
-        <!----cadastro-v------------>
-
-
-    </div>
-
+<!----cadastro-v------------>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel " >
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -74,7 +81,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" id="fecharC" data-dismiss="modal" >fechar</button>
+                <button type="button" class="btn btn-default" id="fecharC1" data-dismiss="modal" >fechar</button>
             </div>
         </div>
     </div>

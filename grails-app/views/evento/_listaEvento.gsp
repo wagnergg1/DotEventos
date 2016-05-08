@@ -26,8 +26,8 @@
                                 <span class="sr-only">60% Complete</span>
                         </div>
                 </div>
-                <h2 class="text-center">${it.nome}
-                        <H4 class="text-center float">
+                <h2 class="text-center" style="color: whitesmoke">${it.nome}
+                        <H4 class="text-center float" style="color: whitesmoke">
                         <g:formatDate  format="dd-MM-yyyy HH:mm" date="${it.data}"/>
                 </H4>
 

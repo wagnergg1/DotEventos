@@ -13,14 +13,15 @@
 
 
             <div class='form-group date'>
-                <label for="dataevento2">Nome</label>
+                <label for="dataevento2">Data Entrega</label>
                 <input type="datetime-local" class="form-control " id="dataevento2" placeholder="Data" name="dataEntrega" required="true"/>
 
             </div>
-
+             <div class="from-control">
             <label for="selecao">Tipo Dot: &nbsp; </label>
-            <g:select id="selecao"  name="tipoDot"   from="${doteventos.TipoDot.listOrderByNome()}" optionKey="id" optionValue="nome"  />
+            <g:select id="selecao"  name="tipoDot"   from="${doteventos.TipoDot.listOrderByNome()}" optionKey="id" optionValue="nome" class="form-control"/>
             </div>
+        </div>
 
 
                 <input id="avatar" name="avatardot" type="file">

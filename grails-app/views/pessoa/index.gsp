@@ -10,15 +10,8 @@
 
           <div class="col-xs-12  text-right  fundo">
 
-                            <sec:ifAllGranted roles='ROLE_ADM'>
-                                  <button type="button" class="  btn btn-primary text-center bnt-lg"  title="Adicionar" data-toggle="modal" data-target="#myModal" onclick="limparFrom()">
-                               <span class="glyphicon glyphicon-plus-sign"> </span>
-                                 </button>
-                            </sec:ifAllGranted>
-                      <div id=>
+                           <h2 class="text-center text-primary">Usuário</h2>
 
-
-              </div>
             </div>
 
     <div id="divFormulario1"></div>

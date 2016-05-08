@@ -35,6 +35,8 @@
                                         <g:textArea  rows="3" class="form-control blockTextarea " name="descricao" id="descricao" required="true" ></g:textArea>
 
                                         <input type="hidden" name="id" value=""/>
+
+
                                         <div class="text-right">
                                             <button type="submit" class ="btn btn-sm right btn-success"  >Salvar</button>
                                         </div>

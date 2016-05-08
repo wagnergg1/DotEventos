@@ -7,8 +7,9 @@ class Evento {
     Pessoa organizador
     String imagemType
     byte[] imagem
-
-
+    Integer icadastrado
+    Integer finalizados
+    Integer emDesenvolvimento
 
     static hasMany = [pessoaEvento: Pessoa_has_Evento, dots : Dots]
 
@@ -18,5 +19,8 @@ class Evento {
         organizador nullable: false, blank:false
         imagemType nullable: false
         imagem     nullable: false, maxSize:1000000000
+        icadastrado nullable: true , blank :true
+        finalizados nullable: true , blank :true
+        emDesenvolvimento nullable: true , blank :true
          }
 }

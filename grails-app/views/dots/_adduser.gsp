@@ -1,5 +1,5 @@
-<div class="row">
-<div class="col-xs-12 tamanho " >
+<div class="row tamanho">
+<div class="col-xs-12 " >
     <sec:ifAllGranted roles='ROLE_ADM'>  <button type="button" class="btn btn-primary "  title="Adicionar" data-toggle="modal" data-target="#tadduser" >
         <span class="glyphicon glyphicon-plus-sign"> </span>
     </button></sec:ifAllGranted>

@@ -1,4 +1,13 @@
+<div class="row tamanho">
+    <div class="col-xs-12 tamanho">
+        <sec:ifAllGranted roles='ROLE_ADM'>
+            <button type="button" class="  btn btn-primary text-center bnt-lg"  title="Adicionar" data-toggle="modal" data-target="#myModal" onclick="limparFrom()">
+                <span class="glyphicon glyphicon-plus-sign"> </span>
+            </button>
+        </sec:ifAllGranted>
+    </div>
 
+</div>
     <h2 class="text-center">Cadastro de Usuários</h2>
 <div class="panel panel-default">
 <div class="table-responsive">

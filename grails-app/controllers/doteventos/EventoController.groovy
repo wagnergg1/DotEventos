@@ -107,9 +107,5 @@ class EventoController {
         render(template: "listaEvento", model:[eventos: listaeve])
 
     }
-    def DotF(){
-
-
-    }
 
 }

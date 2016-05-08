@@ -7,8 +7,8 @@
 </head>
 
         <div class="row">
-            <div class="col-xs-12  text-right fundo tamanho">
-
+            <div class="col-xs-12   fundo ">
+                <h2 class="text-primary text-center">Eventos</h2>
             </div>
 
             <!----Corpo-v------------>
