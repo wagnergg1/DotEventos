@@ -1,7 +1,7 @@
 
 
     <div class="Col-xs-10 col-lg-offset-1" >
-    <g:formRemote id="frmPessoa" name="frmPessoa"  url="[controller: 'listaAtividades', action: 'salvar']"  >
+    <g:formRemote id="frmPessoa" name="frmPessoa"  url="[controller: 'listaAtividades', action: 'salvar']"  onSuccess="carregardotLista(${pai.id})">
 
 
         <p/><p/>
@@ -31,7 +31,7 @@
         <input type="hidden" name="pai" value="${pai.id}"/>
         <input type="hidden" name="id" value=""/>
         <div class="text-right">
-            <button type="submit" class ="btn btn-sm right btn-success" >Salvar</button>
+            <button type="submit" class ="btn btn-sm right btn-success">Salvar</button>
         </div>
         <div id="resposta" ></div>
     </g:formRemote>

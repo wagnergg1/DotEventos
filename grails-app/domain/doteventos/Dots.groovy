@@ -10,7 +10,9 @@ class Dots {
     byte[] imagem
     String imagemType
     static hasMany = [listas: ListaAtividades]
+    static belongsTo = [evento : Evento]
     static constraints = {
+
         nomeDot nullable: false , blank:  false
         dataCadastro nullable: false , blank: false
         dataEntrega nullable: false , blank: false

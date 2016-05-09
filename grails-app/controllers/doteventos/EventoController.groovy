@@ -62,7 +62,7 @@ class EventoController {
             retorno["mensagen"] = "ok"
         } else {
             retorno["mensagen"] = evento.errors
-            println evento.errors
+
         }
         redirect(action: index())
 
@@ -91,19 +91,19 @@ class EventoController {
         }
 
     }
-
     def excluir() {
-
+        def retorno=[:]
         Evento evento = Evento.get(params.id)
         try {
             evento.delete(flush: true)
-        } catch (Exception ex) {
-
+                 }catch (ExceptionMapper) {
+            retorno["mensagem"]="erro"
 
         }
         def listaeve = Evento.createCriteria().list {
             order("data")
         }
+
         render(template: "listaEvento", model:[eventos: listaeve])
 
     }

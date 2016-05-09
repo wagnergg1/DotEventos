@@ -1,7 +1,7 @@
 <div class="row tamanho">
     <div class="col-xs-12  ">
             <sec:ifAllGranted roles='ROLE_ADM'>  <button type="button" class="btn btn-primary "  title="Adicionar" data-toggle="modal" data-target="#myModal" >
-                        <span class="glyphicon glyphicon-plus-sign"> </span></button>
+                        <span class="glyphicon glyphicon-record"> Tarefa </span></button>
             </sec:ifAllGranted>
     </div>
 </div>
@@ -18,11 +18,7 @@
 
         <div    class="  col-xs-12 divevento retina TEXT-CENTER" >
 
-            <div class="progress">
-                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"  style="width: 60%;">
-                    <span class="sr-only">60% Complete</span>
-                </div>
-            </div>
+
             <h2 class="text-center" style="color: whitesmoke">${it.nomeDot}
                 <H4 class="text-center float" style="color: whitesmoke">
                     <g:formatDate  format="dd-MM-yyyy HH:mm" date="${it.dataEntrega}"/>
@@ -32,14 +28,14 @@
                 </div>
                 <div class="btn-group " role="group" style="padding: 5px">
                     <sec:ifAllGranted roles='ROLE_ADM'>
-                        <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#myModal" data-toggle="tooltip" title="Alterar" onclick="getevento('${it.id}')"> <spam class="glyphicon glyphicon-edit"/></button>
+                        <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#myModal" data-toggle="tooltip" title="Alterar" onclick="getdot('${it.id}')"> <spam class="glyphicon glyphicon-edit"/></button>
                     </sec:ifAllGranted>
 
 
 
 
                     <sec:ifAllGranted roles='ROLE_ADM'>
-                        <button type="button" class="btn btn-danger" data-toggle="tooltip" title="Excluir" onclick="delevento('${it.id}')"><spam class="glyphicon glyphicon-remove-circle"></spam></button>
+                        <button type="button" class="btn btn-danger" data-toggle="tooltip" title="Excluir" onclick="deldot('${it.id}','${evento.id}')"><spam class="glyphicon glyphicon-remove-circle"></spam></button>
                     </sec:ifAllGranted>
                 </div>
 
@@ -48,7 +44,7 @@
 
                 <div class="footer">
                     <div class="col-xs-12">
-                    <g:link absolute="true" controller="dots" action="dots" id="${it.id}"  params="[evento:it.evento]" data-toggle="tooltip" title="Dot's" class=" btn right"><spam class="glyphicon glyphicon-share"></spam> Dot</g:link>
+                    <g:link absolute="true" controller="dots" action="dotsf" id="${it.id}"  params="[evento:it.evento]" data-toggle="tooltip" title="Dot's" class=" btn right"><spam class="glyphicon glyphicon-share"></spam>Abrir </g:link>
 
 
                     </div>

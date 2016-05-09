@@ -18,16 +18,13 @@
 
             </div>
         </div>
-
-
-
-
+        <label>Descrição do evento:</label>
 
         <g:textArea  rows="9" class="form-control blockTextarea " name="descricao"  required="true"  ></g:textArea>
 
         <hr>
 
-                <input id="avatar" name="avatar" type="file">
+                <input id="avatar" name="avatar" type="file" class="form-control">
 
 
 

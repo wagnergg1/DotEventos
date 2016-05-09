@@ -173,6 +173,7 @@ function delevento(id)
                 data: {"id": id},
 
                 success: function (data) {
+                   console.log(data)
                     if(data.mensagem="ok")
                     $("#divlistaevento").html(data)           }
             }
@@ -196,36 +197,67 @@ function carregarListaeventos(){
     )
 
 }
-function abrirDots(id){
-    $.ajax({
-        method: "POST",
-        url: "/dots/index",
-        data: {"id": id},
-         })
-        }
+
 
 //----------------------Tipo dots
 
-function getdot(id){
+
+    function getdot(id){
+        $.ajax({
+                method: "POST",
+                url: "/dots/getDot",
+                data: {"id": id},
+                success: function (data) {
+                    console.log(data)
+
+                    var a = ""+data.dataEntrega+""
+                    var dt= a.substring(0, 19)
+                    $( "input[name=nomeDot]").val(data.nomeDot)
+                    $("input[name=id]").val(data.id)
+                    $("textarea[name=descricao]").val(data.descricao)
+                    $("input[name=dataEntrega]").val(dt)
+
+                }
+            }
 
 
+        )
+    }
+
+
+function deldot(id,e){
+    if(confirm("Confirma a Exclusão da Tarefa")){
+        $.ajax({
+                method: "POST",
+                url: "/dots/excluir",
+                data: {"id": id, "e":e},
+                success: function (data) {
+                    console.log(data)
+                    carregardot(e)
+
+                }
+            }
+
+
+        )}
+}
+
+function carregardot(e){
     $.ajax({
             method: "POST",
-            url: "gettipodot",
-            data: {"id": id},
-            success: function (data) {
-                console.log(data)
-
-                $( "input[name=nome]").val(data.nome)
-                $("input[name=id]").val(data.id)
-                $("textarea[name=descricao]").val(data.descricao)
+            url :   "/dots/listadotindex",
+            data : {"id":e },
+            success: function(data){
+                $("#dots").html(data)
 
             }
         }
 
 
     )
+
 }
+
 
 
 
@@ -354,3 +386,146 @@ function removecolab(p,e){
 
 }
 
+function getdotlist(id){
+    $.ajax({
+            method: "POST",
+            url: "/dots/getDotlista",
+            data: {"id": id},
+            success: function (data) {
+                console.log(data)
+
+                var a = ""+data.dataEntrega+""
+                var dt= a.substring(0, 19)
+                $( "input[name=nomeListaAtividades]").val(data.nomeListaAtividades)
+                $("input[name=id]").val(data.id)
+                $("textarea[name=descricao]").val(data.descricao)
+                $("input[name=dataEntrega]").val(dt)
+
+            }
+        }
+
+
+    )
+}
+
+function linpadotlist(){
+
+                $( "input[name=nomeListaAtividades]").val("")
+                $("input[name=id]").val("")
+                $("textarea[name=descricao]").val("")
+                $("input[name=dataEntrega]").val("")
+
+       }
+
+
+function carregardotLista(id){
+    $.ajax({
+            method: "POST",
+            url :   "/dots/carregardotLista",
+            data : {id:id},
+            success: function(data){
+                $("#lista").html(data)
+
+            }
+        }
+
+
+    )
+
+}
+
+function dellistaAdot(id,pai)
+{
+    if(confirm("Confirma a Exclusão do Tipo Evento")){
+        $.ajax({
+                method: "POST",
+                url: "/listaAtividades/excluir",
+                data: {"id": id},
+                success: function (data) {
+                    console.log(data)
+                    if (data.res="1"){
+                        carregardotLista(pai)
+
+                    }else{
+                        alert("Não foi possível excluir Dot")
+                    }
+
+                }
+            }
+
+
+        )}
+}
+
+function delitem(id,l){
+    $.ajax({
+            method: "POST",
+            url: "/listaAtividades/excluiritem",
+            data: {"id": id},
+            success: function (data) {
+                console.log(data)
+                if (data.res="1"){
+                    carregaritens(l)
+
+                }else{
+                    alert("Não foi possível excluir Dot")
+                }
+
+            }
+        }
+
+
+    )}
+
+
+function limparformitens(){
+    $( "input[name=nomeObjeto]").val("")
+    $("input[name=id]").val("")
+    $("input[name=custo]").val("")
+    $("textarea[name=descricao]").val("")
+    $("input[name=dataEntrega]").val("")
+}
+
+function carregaritens(id){
+    $.ajax({
+            method: "POST",
+            url :   "/listaAtividades/carregaritens",
+            data : {id:id},
+            success: function(data){
+                $("#divlistaitem").html(data)
+                limparformitens()
+
+            }
+        }
+ )
+}
+function confirma(id,l){
+
+    $.ajax({
+
+        method:"POST",
+        url: "/listaAtividades/confirmar",
+        data: {id:id},
+        success: function(){
+            carregaritens(l)
+        }
+
+
+    })
+
+}
+function desfazer(id,l){
+
+    $.ajax({
+
+        method:"POST",
+        url: "/listaAtividades/desfazer",
+        data: {id:id},
+        success: function(){
+            carregaritens(l)
+        }
+
+
+    })
+
+}

@@ -27,7 +27,7 @@
 
 
 
-        <input type="hidden" name="dotid" value=""/>
+        <input type="hidden" name="id" value=""/>
         <input id="evento" name="evento" type="hidden" value="${evento.id}">
         <input id="dotpai" name="pai" type="hidden" value="${pai.id}">
         <div class="text-right">

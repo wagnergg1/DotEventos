@@ -7,6 +7,12 @@
 </head>
 
 <body>
+<div class="row tamanho text-right ">
+    <a href="/#" type="button" class="btn btn-primary text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
+    <sec:ifAllGranted roles='ROLE_ADM'>
+        <a href="/#" type="button" class="btn btn-google text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
+    </sec:ifAllGranted>
+</div>
 <div class="row">
 
     <div class="fundo text-center  ">
@@ -17,33 +23,97 @@
 
 
 <!-----------corpo-->
+<div class="row">
+<sec:ifAllGranted roles='ROLE_ADM'>
+<g:render template="formulario"></g:render>
 
-        <div class="navbar">
-            <ul class="nav nav-tabs" role="tablist">
-                <li><a href="#listas" data-toggle="tab">Lista</a> </li>
-                <li><a href="#Cadastro" data-toggle="tab">Cadastrar item</a> </li>
-            </ul>
-
-        <div class="tab-content">
-
-            <div role="tabpanel" class="tab-pane" id="listas">
-                <P> teste lista </P>
-
-            </div><!-- fim lista-->
-
-            <div role="tabpanel" class="tab-pane" id="Cadastro">
-            <P> teste lista </P>
-            </div><!-- fim cadastro-->
-
-
+</sec:ifAllGranted>
+</div>
+<div class="row">
+            <g:render template="listaItens"  model="[listaA:listaA]"></g:render>
+</div>
 
             
-        </div><!--fim content -->
 
 
-        </div><!--fim navbartab-->
+
+<div>
+
+    <div class="modal fade" id="enderevo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel " >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center" id="myModaldot">Dot</h4>
+                </div>
+                <div class="modal-body" >
+                    <div>
+                        <div id="divFormulario" class="col-xs-12">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="fecharC1" data-dismiss="modal" >fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div>
+
+    <div class="modal fade" id="cntato" tabindex="-1" role="dialog" aria-labelledby="myModalLabel " >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center" id="myModalcontato">Lista</h4>
+                </div>
+                <div class="modal-body" >
+                    <div>
+                        <div id="divcontato" class="col-xs-12">
+                            <%--formcontato--%>
 
 
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="fecharC2" data-dismiss="modal" >fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div>
+
+    <div class="modal fade" id="visao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel " >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center" id="myModalvisao">Lista</h4>
+                </div>
+                <div class="modal-body" >
+                    <div>
+                        <div id="divvisao" class="col-xs-12">
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="fecharC3" data-dismiss="modal" >fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>

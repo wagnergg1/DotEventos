@@ -15,10 +15,17 @@ class DotsController {
 
 
     def index(){
+
                  def pesadd = Pessoa.createCriteria().list{
                     ne("id",1l)
                 }
-                Evento evento = Evento.get(params.id)
+
+        Evento evento
+                if(params.id){
+                    evento = Evento.get(params.id)
+                    }else {
+                    evento=e
+                }
                 def pe = Pessoa_has_Evento.createCriteria().list {
                     eq("evento", evento)}
 
@@ -30,10 +37,9 @@ class DotsController {
                 }
 
 
-        def carregarcolaborador(){
 
-
-                        Evento eve = Evento.get(params.id)
+    def carregarcolaborador(){
+            Evento eve = Evento.get(params.id)
 
             def pee = Pessoa_has_Evento.createCriteria().list {
                 eq("evento", eve)}
@@ -45,8 +51,6 @@ class DotsController {
 
     def removeuser() {
      def retorno =[:]
-
-
         Pessoa xpes = new Pessoa()
         xpes= Pessoa.get(params.p)
         Evento xeve = new Evento()
@@ -109,19 +113,16 @@ class DotsController {
 
         }
                  private static final okcontents = ['image/png', 'image/jpeg', 'image/gif']
+
         def salvardot(){
-
-
             String formato = "yyyy-MM-dd'T'hh:mm"
             def arquivo = request.getFile('avatardot')
             Dots dot
-            if(params.dotid){
-                dot = Dot.get(params.dotid)
+            if(params.id){
+                dot = Dots.get(params.id)
             }else{
                 dot = new Dots()
                   }
-
-
             Evento evento = Evento.findById(params.evento)
             TipoDot td =TipoDot.findById(params.tipodot)
             dot.nomeDot = params.nomeDot
@@ -150,9 +151,7 @@ class DotsController {
             def dots = Dots.createCriteria().list{
                 eq("evento",evento)
             }
-
-            render(view: "index" , model: [dots: dots, pessoaeve :pe.pessoa , evento:evento, pessoasadd:pesadd])
-
+            redirect( controller: "dots", action: "index" ,params: [id:evento.id] )
         }
 
     def imagemDots = {
@@ -173,9 +172,9 @@ class DotsController {
 
     }
 
-    def dots(){
+    def dotsf(){
             Dots pai = Dots.get(params.id)
-            Evento evento = pai.evento
+            Evento evento = Evento.get(pai.evento.id)
 
         def listaA =ListaAtividades.createCriteria().list{
             eq("dots",pai)
@@ -187,7 +186,7 @@ class DotsController {
 
         def pe = Pessoa_has_Evento.createCriteria().list {
             eq("evento", evento)}
-        render(view: "dots", model:[pai:pai,evento:evento, dots:dots , pessoaeve: pe.pessoa , listaA : listaA]  )
+        render(view: "dotsf", model:[pai:pai, evento:evento, dots:dots, pessoaeve: pe.pessoa, listaA: listaA]  )
     }
 
 
@@ -197,16 +196,16 @@ class DotsController {
         String formato = "yyyy-MM-dd'T'hh:mm"
         def arquivo = request.getFile('avatardot')
         Dots dot
-        if(params.dotid){
-            dot = Dot.get(params.dotid)
+        if(params.id){
+            dot = Dots.get(params.id)
         }else{
             dot = new Dots()
         }
 
             println(params.pai)
-        Evento evento = Evento.findById(params.evento)
+        Evento evento = Evento.findById(Long.parseLong(params.evento))
         TipoDot td =TipoDot.findById(params.tipodot)
-        Dots pai = Dots.get(params.pai)
+        Dots pai = Dots.get(Long.parseLong(params.pai))
 
         dot.nomeDot = params.nomeDot
         dot.dataCadastro = new Date()
@@ -225,15 +224,62 @@ class DotsController {
             println('deu alguma merda')
         }
 
+        redirect( controller: "dots", action: "dots" ,params: [id:dot.pai.id, evento:  dot.pai.evento.id] )
+
+
+    }
+
+    def getDot(){
+        Dots dots = Dots.get(params.id)
+        render dots as JSON
+    }
+
+
+    def excluir() {
+        def ret=[:]
+        Dots dot = Dots.get(params.id)
+        Evento evento = Evento.get(params.e)
+
+        try {
+            dot.delete(flush: true)
+            ret["ret"]="1"
+
+        } catch (Exception ex) {
+
+        }
+        render ret as JSON
+
+    }
+
+    def listadotindex(){
+        println "listaint"
+        println params.id
+        Evento evento = Evento.get(Long.parseLong(params.id))
+        println(evento)
         def dots = Dots.createCriteria().list{
-            eq("pai",pai)
-
+            eq("evento",evento)
+            isNull("pai")
         }
+        render (template: "/dots/listaDot", model: [dots: dots])
+
+    }
+
+    def getDotlista(){
+        ListaAtividades listaA = ListaAtividades.get(params.id)
+        render listaA as JSON
+    }
+
+    def carregardotLista(){
+            println "lista"
+            println(params.id+"testes")
+
+               Dots pai= Dots.findById(params.id)
+        println(pai.nomeDot)
+
         def listaA =ListaAtividades.createCriteria().list{
-            eq("dots",pai)
-        }
-        render(view: "dots" , model: [pai: pai , evento: evento, dots: dots, listaA: listaA])
+            eq("dots", pai)}
 
+       render(template: "listas", model: [listaA: listaA , pai: pai])
     }
 
 

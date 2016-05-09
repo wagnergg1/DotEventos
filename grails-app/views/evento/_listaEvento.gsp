@@ -1,9 +1,11 @@
 
 <div class="row tamanho">
+
+
 <sec:ifAllGranted roles='ROLE_ADM'>
-        <button type="button" class="btn btn-primary " title="Adicionar" data-toggle="modal" data-target="#myModal" onclick="limparFormEvento()">
-                    <span class="glyphicon glyphicon-plus-sign"> </span>
-        </button>
+             <button type="button" class="btn btn-primary " title="Adicionar"  id="Ass"data-toggle="modal" data-target="#myModal" onclick="limparFormEvento()">
+                    <span class="glyphicon glyphicon-flag"> Evento</span>
+
 </sec:ifAllGranted>
 </div>
 
@@ -11,6 +13,14 @@
 
         <div class="hoverzoom col-xs-12 divevento" >
                 <h2 class="text-center text-primary ">${it.nome} </h2>
+                <g:if test="${it.icadastrado}">
+                        <div class="progress">
+
+                                <div class="progress-bar progress-bar-warning " role="progressbar" aria-valuenow="${it.finalizados/it.icadastrado*100}" aria-valuemin="0" aria-valuemax="100"  style="width: ${it.finalizados/it.icadastrado*100}%;">
+                                        <span class="sr-only">${(it.finalizados/it.icadastrado)*100}% Complete</span>
+                                </div>
+
+                        </div></g:if>
                 <g:if test="${it.imagem}">
                         <img style="border-radius: 20px" src="/evento/imagemEvento/${it.id}"/>
                 </g:if><g:else>
@@ -21,11 +31,8 @@
 
         <div    class="  col-xs-12 divevento retina TEXT-CENTER" >
 
-                <div class="progress">
-                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"  style="width: 60%;">
-                                <span class="sr-only">60% Complete</span>
-                        </div>
-                </div>
+
+
                 <h2 class="text-center" style="color: whitesmoke">${it.nome}
                         <H4 class="text-center float" style="color: whitesmoke">
                         <g:formatDate  format="dd-MM-yyyy HH:mm" date="${it.data}"/>
@@ -51,7 +58,7 @@
 
                         <div class="row">
                                 <div class="col-xs-12">
-                                <g:link controller="dots" action="index" id="${it.id}" data-toggle="tooltip" title="Dot's" class=" btn right"><spam class="glyphicon glyphicon-share"></spam> Dot</g:link>
+                                <g:link controller="dots" action="index" id="${it.id}" data-toggle="tooltip" title="Dot's" class=" btn right"><spam class="glyphicon glyphicon-share"></spam> Abrir</g:link>
                                 </div>
                         </div>
 

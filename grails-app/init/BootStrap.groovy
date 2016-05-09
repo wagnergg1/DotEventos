@@ -1,4 +1,5 @@
 import doteventos.Pessoa
+import doteventos.TipoDot
 import doteventos.TipoPessoa
 import seguranca.Permissao
 import seguranca.UsuarioPermissao
@@ -51,6 +52,9 @@ class BootStrap {
             ).save(flush: true)
 
         }
+
+
+
             }
     def destroy = {
     }

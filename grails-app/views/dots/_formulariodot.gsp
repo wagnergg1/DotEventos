@@ -5,7 +5,7 @@
 
 
         <div class="form-group">   <p/><p/>
-            <label for="nomedot">Nome</label>
+            <label for="nomedot">Nome Tarefa:</label>
             <input type="text" class="form-control" id="nomedot" placeholder="Nome" name="nomeDot" value="" autocomplete="off" required="true"/>
         </div>
 
@@ -28,7 +28,7 @@
 
 
 
-        <input type="hidden" name="dotid" value=""/>
+        <input type="hidden" name="id" value=""/>
         <input id="evento" name="evento" type="hidden" value="${evento.id}">
         <div class="text-right">
             <button type="submit" class ="btn btn-sm right btn-primary from-control " >Salvar</button>

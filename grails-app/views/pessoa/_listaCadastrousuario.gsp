@@ -2,7 +2,7 @@
     <div class="col-xs-12 tamanho">
         <sec:ifAllGranted roles='ROLE_ADM'>
             <button type="button" class="  btn btn-primary text-center bnt-lg"  title="Adicionar" data-toggle="modal" data-target="#myModal" onclick="limparFrom()">
-                <span class="glyphicon glyphicon-plus-sign"> </span>
+                <spam class="glyphicon glyphicon-user ">&nbsp;Novo</spam>
             </button>
         </sec:ifAllGranted>
     </div>

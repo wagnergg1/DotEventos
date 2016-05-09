@@ -78,9 +78,6 @@ class PessoaController {
                      retorno["tipoErro"] = usuario.errors
 
         }
-
-        println retorno as JSON
-
         render retorno as JSON
 
     }

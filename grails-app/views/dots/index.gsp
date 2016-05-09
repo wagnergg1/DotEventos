@@ -7,7 +7,12 @@
 </head>
 
 <body>
-
+<div class="row tamanho text-right ">
+    <a href="/#" type="button" class="btn btn-primary text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
+    <sec:ifAllGranted roles='ROLE_ADM'>
+        <a href="/#" type="button" class="btn btn-google text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
+    </sec:ifAllGranted>
+</div>
 
 <div class="row">
             <div class="fundo ">
@@ -24,46 +29,33 @@
 
 </div>
     <!----Corpo-v------------>
-    <div class="navbar">
+<sec:ifAllGranted roles='ROLE_ADM'>
+<div class="row">
+    <div class="col-xs-12 thumbnail" id="colaborador">
 
-    <ul class="nav nav-tabs" role="tablist">
-        <li><a href="#dots" data-toggle="tab">Dots</a></li>
-        <li><a href="#colaborador" data-toggle="tab">Colaboradores</a></li>
-        <li><a href="#Mapa" data-toggle="tab">Mapa</a></li>
-
-    </ul>
-
-
-
-    <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="dots">
-
-
-                <g:render template="listaDot"></g:render>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="colaborador">
-
-            <g:render template="adduser" model="pessoas : pessoas"></g:render>
-            
-        </div>
-        <div role="tabpanel" class="tab-pane" id="Mapa">
-            <div class="container tamanho">
-                  <g:img dir="images" file="mapas.jpg" class="img-responsive"/>
-            </div>
-
+        <g:render template="adduser" model="pessoas : pessoas"></g:render>
 
     </div>
+</div>
+</sec:ifAllGranted>
+<div class="row">
+         <div class="col-xs-12 thumbnail" id="dots">
 
+               <g:render template="listaDot"></g:render>
         </div>
-
-
-
-
-
-
 
 
 </div>
+
+
+
+
+
+
+
+
+
+
 
 <!----cadastro-v------------>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel " >
@@ -98,6 +90,10 @@
             <div class="modal-body"  >
                 <div>
                     <div id="divadduser" class="col-xs-12">
+                       <div class="">
+                        <a href="/pessoa/index" type="button" class="btn btn-primary  " ><spam class="glyphicon glyphicon-user ">&nbsp;Novo</spam></a>
+                           <p/>
+                       </div>
                         <g:render template="selectuser" model="pessoasadd:pessoasadd" />
                     </div>
                 </div>

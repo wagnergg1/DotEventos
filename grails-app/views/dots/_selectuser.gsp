@@ -1,5 +1,8 @@
 
+
+
 <div class="panel panel-default">
+
     <div class="table-responsive">
 
         <table class="table  table-view table-striped table-hover ">
