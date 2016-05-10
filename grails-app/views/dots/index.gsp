@@ -8,7 +8,7 @@
 
 <body>
 <div class="row tamanho text-right ">
-    <a href="/#" type="button" class="btn btn-primary text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
+    <a href="/ajuda/indexcolb3" type="button" class="btn btn-primary text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
     <sec:ifAllGranted roles='ROLE_ADM'>
         <a href="/#" type="button" class="btn btn-google text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
     </sec:ifAllGranted>
@@ -67,7 +67,9 @@
             </div>
             <div class="modal-body"  >
                 <div>
-                    <div id="divFormulario" class="col-xs-12">
+                    <h3 class="text-center text-primary">${evento.nome}</h3>
+
+                    <div id="divFormulario" class="col-xs-12"><p><p/>
                         <g:render template="formulariodot"></g:render>
                     </div>
                 </div>

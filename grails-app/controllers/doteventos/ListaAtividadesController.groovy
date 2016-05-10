@@ -25,32 +25,38 @@ class ListaAtividadesController {
 
     def salvar() {
         def retorno=[:]
-        println "Entrou"
-        String formato = "yyyy-MM-dd'T'hh:mm"
+        println "1"
+        String formato = "yyyy-MM-dd'T'HH:mm"
         ListaAtividades lista
 
         if(params.id){
             lista = ListaAtividades.get(params.id)
-
+            println "2"
         }else {
             lista = new ListaAtividades()
+            println "3"
         }
         Pessoa responsavel = Pessoa.findById(Long.parseLong(params.responsavel))
-
+        println "2"
         lista.nomeListaAtividades = params.nomeListaAtividades
         lista.dataCadastro = new Date()
         lista.responsavel = responsavel
         lista.dataEntrega =new SimpleDateFormat(formato).parse(params.dataEntrega)
         lista.dots = Dots.get(params.pai)
+        lista.evento = Evento.get(params.evento)
         lista.validate()
-        println(responsavel)
+        println(lista.errors)
+
 
         if(!lista.hasErrors()){
+            println "4"
             lista.save(flush: true)
             retorno["Mensagem"]="Ok"
 
         }  else {
-            retorno["Mensagem"]="Ok"
+            println(responsavel)
+            println "5"
+            retorno["Mensagem"]="erro"
         }
 
             render retorno as JSON
@@ -78,6 +84,7 @@ class ListaAtividadesController {
 
         def listaObj = ObjetoLista.createCriteria().list{
             eq("listaAtividades", listaA)
+            order("dataEntrega",)
         }
         render (template: "listaItens" , model: [listaA: listaA, listaObj: listaObj])
 
@@ -145,6 +152,19 @@ class ListaAtividadesController {
 
 
     }
+
+
+    def carregarindex(){
+        Pessoa  user = springSecurityService.currentUser
+
+        def list = ListaAtividades?.findByResponsavel(user)?.listaObjetos?.asList()
+
+
+        render (template: "/listaAtividades/listaItensuser" , model: [listaObj: list])
+
+
+    }
+
 
 
 }

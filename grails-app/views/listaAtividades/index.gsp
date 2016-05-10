@@ -8,7 +8,7 @@
 
 <body>
 <div class="row tamanho text-right ">
-    <a href="/#" type="button" class="btn btn-primary text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
+    <a href="/ajuda/indexcolb5" type="button" class="btn btn-primary text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
     <sec:ifAllGranted roles='ROLE_ADM'>
         <a href="/#" type="button" class="btn btn-google text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
     </sec:ifAllGranted>
@@ -17,8 +17,8 @@
 
     <div class="fundo text-center  ">
 
-        <h1 class="text-primary">lista</h1>
-        <small class=" text-primary"> date</small>
+        <h1 class="text-primary">${listaA.nomeListaAtividades}</h1>
+        <h4 class=" text-primary"> <g:formatDate  format="dd-MM-yyyy HH:mm" date="${listaA.dataEntrega}"/></h4>
     </div> </div>
 
 

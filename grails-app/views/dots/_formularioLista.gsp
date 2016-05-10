@@ -28,6 +28,7 @@
         <div>
 
         </div>
+        <input type="hidden" name="evento" value="${evento.id}">
         <input type="hidden" name="pai" value="${pai.id}"/>
         <input type="hidden" name="id" value=""/>
         <div class="text-right">

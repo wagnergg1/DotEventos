@@ -11,7 +11,7 @@ class Evento {
     Integer finalizados =0
 
 
-    static hasMany = [pessoaEvento: Pessoa_has_Evento, dots : Dots]
+    static hasMany = [pessoaEvento: Pessoa_has_Evento, dots : Dots , listaA: ListaAtividades]
 
     static mapping = {
         child cascade: 'all-delete-orphan'

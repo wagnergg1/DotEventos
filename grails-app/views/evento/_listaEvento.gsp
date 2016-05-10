@@ -17,7 +17,7 @@
                         <div class="progress">
 
                                 <div class="progress-bar progress-bar-warning " role="progressbar" aria-valuenow="${it.finalizados/it.icadastrado*100}" aria-valuemin="0" aria-valuemax="100"  style="width: ${it.finalizados/it.icadastrado*100}%;">
-                                        <span class="sr-only">${(it.finalizados/it.icadastrado)*100}% Complete</span>
+                                        <span class="text-success text-lowercase">${Math.ceil((it.finalizados/it.icadastrado)*100)}% Completo</span>
                                 </div>
 
                         </div></g:if>

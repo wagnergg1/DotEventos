@@ -7,6 +7,7 @@ class ListaAtividades {
     Pessoa responsavel
     Date dataEntrega
     Dots dots
+    Evento evento
     static hasMany = [listaObjetos:ObjetoLista]
     static belongsTo = [dots : Dots]
     static constraints = {

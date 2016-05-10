@@ -15,7 +15,7 @@ class ObjetoListaController {
         ListaAtividades  lista = ListaAtividades.get(params.listaAtividades)
         Evento evento = lista.dots.evento
         ObjetoLista objeto
-        String formato = "yyyy-MM-dd'T'hh:mm"
+        String formato = "yyyy-MM-dd'T'HH:mm"
         if(params.id){
           objeto = ObjetoLista.get(params.id)
         }else {

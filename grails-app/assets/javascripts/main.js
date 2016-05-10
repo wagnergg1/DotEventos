@@ -497,7 +497,7 @@ function carregaritens(id){
 
             }
         }
- )
+    )
 }
 function confirma(id,l){
 
@@ -514,6 +514,7 @@ function confirma(id,l){
     })
 
 }
+
 function desfazer(id,l){
 
     $.ajax({
@@ -528,4 +529,53 @@ function desfazer(id,l){
 
     })
 
+}
+
+function desfazeri(id){
+
+    $.ajax({
+
+        method:"POST",
+        url: "/listaAtividades/desfazer",
+        data: {id:id},
+        success: function(){
+            carregarindex()
+        }
+
+
+    })
+
+}
+
+
+
+function confirmari(id){
+
+    $.ajax({
+
+        method:"POST",
+        url: "/listaAtividades/confirmar",
+        data: {id:id},
+        success: function(){
+            carregarindex()
+        }
+
+
+    })
+
+}
+
+
+function carregarindex(){
+    $.ajax({
+            method: "POST",
+            url :   "/listaAtividades/carregarindex",
+            data : {},
+            success: function(data){
+                $("#primeira").html(data)
+
+
+            }
+        }
+    )
 }

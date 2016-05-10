@@ -51,14 +51,21 @@ class DotsController {
 
     def removeuser() {
      def retorno =[:]
-        Pessoa xpes = new Pessoa()
+                Pessoa xpes = new Pessoa()
         xpes= Pessoa.get(params.p)
         Evento xeve = new Evento()
         xeve = Evento.get(params.id)
-        def  excluir = Pessoa_has_Evento.findByEventoAndPessoa(xeve,xpes)
+
+
+
+
+
+        def  alterar = Pessoa_has_Evento.findByEventoAndPessoa(xeve,xpes)
+
 
         try {
-            excluir.delete(flush: true)
+
+                alterar.delete(flush: true)
             retorno["mensagem"] = "OK"
         } catch (Exception ex) {
 
@@ -115,7 +122,7 @@ class DotsController {
                  private static final okcontents = ['image/png', 'image/jpeg', 'image/gif']
 
         def salvardot(){
-            String formato = "yyyy-MM-dd'T'hh:mm"
+            String formato = "yyyy-MM-dd'T'HH:mm"
             def arquivo = request.getFile('avatardot')
             Dots dot
             if(params.id){
@@ -193,7 +200,7 @@ class DotsController {
     def salvardotfilho(){
 
 
-        String formato = "yyyy-MM-dd'T'hh:mm"
+        String formato = "yyyy-MM-dd'T'HH:mm"
         def arquivo = request.getFile('avatardot')
         Dots dot
         if(params.id){
@@ -224,7 +231,7 @@ class DotsController {
             println('deu alguma merda')
         }
 
-        redirect( controller: "dots", action: "dots" ,params: [id:dot.pai.id, evento:  dot.pai.evento.id] )
+        redirect( controller: "dots", action: "dotsf" ,params: [id:dot.pai.id, evento:  dot.pai.evento.id] )
 
 
     }
