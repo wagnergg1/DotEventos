@@ -14,7 +14,7 @@
 
 <body>
 <div >
-    <a href="/ajuda/indexadm2">
+    <a href="/ajuda/indexadm5">
         <img src="${resource(dir:"images",file: "5indexadm4.png")}" class="text-center img-responsive "  >
     </a>
 

@@ -34,7 +34,7 @@
                                </div>
                                <input type="hidden" name="id" value=""/>
                                <div class="text-right">
-                               <button type="submit" class ="btn btn-sm right btn-success" >Salvar</button>
+                               <button type="submit" class ="btn btn-sm right btn-primary" >Salvar</button>
                                </div>
                                <div id="resposta" ></div>
                            </g:formRemote>

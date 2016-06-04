@@ -8,7 +8,7 @@
 
     <asset:stylesheet src="bootstrap.css"/>
     <asset:stylesheet src="AdminLTE.min.css"/>
-     <asset:stylesheet src="bootstrap-datetimepicker.min.css"/>
+         <asset:stylesheet src="bootstrap-datetimepicker.min.css"/>
     <asset:stylesheet src="meuscss.css"/>
      <g:javascript library="prototype"/>
 

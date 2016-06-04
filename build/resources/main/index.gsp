@@ -30,9 +30,9 @@
                                         <g:render template="/listaAtividades/listaEventosUser" ></g:render>
                                </div>
                             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 "  >
-
+                                <a href="/evento/index">
                                 <img src="${resource(dir:"images",file:"logoDotevento.png" )}" class="text-center img-responsive " style="width: 170px;height: auto"  >
-
+                                </a>
                             </div>
 
 
@@ -43,11 +43,12 @@
 
                         </div>
 
-                        <div class="row">
-                       <div id="primeira" class="col-xs-12 tamanho ">
+                        <div   class="row">
+                       <div  class="col-xs-12 tamanho ">
+                           <div id="primeira">
 
                             <g:render template="/listaAtividades/listaItensuser" model="[listaObj:listaObj]"></g:render>
-
+                       </div>
                        </div>
                     </div>
 

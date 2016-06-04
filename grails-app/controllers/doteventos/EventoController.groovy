@@ -5,24 +5,38 @@ import grails.plugin.springsecurity.annotation.Secured
 
 import java.text.SimpleDateFormat
 class EventoController {
+    def springSecurityService
 
     @Secured(value = ['ROLE_ADM', 'ROLE_USER'])
 
+
+
     def index() {
+        def user = springSecurityService.currentUser
+
         def listaeve = Evento.createCriteria().list {
-            order("data")
+
+
+            order("data" , 'asc')
         }
 
 
         render(view: "/evento/index", model: [eventos: listaeve])
 
     }
-    def springSecurityService
+
 
     def listarEvento() {//1
 
+
+        def user = springSecurityService.currentUser
+
         def listaeve = Evento.createCriteria().list {
+
+
             order("data")
+
+
         }
 
         render(template: "/evento/listaEvento", model: [eventos: listaeve])
@@ -93,6 +107,8 @@ class EventoController {
     }
     def excluir() {
         def retorno=[:]
+        def user = springSecurityService.currentUser
+
         Evento evento = Evento.get(params.id)
         try {
             evento.delete(flush: true)
@@ -101,11 +117,14 @@ class EventoController {
 
         }
         def listaeve = Evento.createCriteria().list {
+
             order("data")
         }
 
         render(template: "listaEvento", model:[eventos: listaeve])
 
     }
+
+
 
 }

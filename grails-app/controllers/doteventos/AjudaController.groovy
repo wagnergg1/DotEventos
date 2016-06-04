@@ -52,6 +52,19 @@ class AjudaController{
         render (view:"indexadm6")}
 
 
+    @Secured(value = ['ROLE_ADM'])
+    def indexadm7(){
+        render (view:"indexadm7")}
+    @Secured(value = ['ROLE_ADM'])
+    def indexadm8(){
+        render (view:"indexadm8")}
+    @Secured(value = ['ROLE_ADM'])
+    def indexadm9(){
+        render (view:"indexadm9")}
+    @Secured(value = ['ROLE_ADM'])
+    def indexadm10(){
+        render (view:"indexadm10")}
+
 
 
 }

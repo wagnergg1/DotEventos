@@ -4,8 +4,7 @@
         <div class="panel-heading">
       <h4 class="text-center">Minha Lista </h4>
      </div>
-        <div class="panel-body"/>
-    <table class="table  table-view table-striped table-hover table-responsive ">
+        <table class="table  table-view table-striped table-hover table-responsive ">
 
     <tr>
 

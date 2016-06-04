@@ -10,7 +10,7 @@
 <div class="row tamanho text-right ">
     <a href="/ajuda/indexcolb3" type="button" class="btn btn-primary text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
     <sec:ifAllGranted roles='ROLE_ADM'>
-        <a href="/#" type="button" class="btn btn-google text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
+        <a href="/ajuda/indexadm7" type="button" class="btn btn-google text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
     </sec:ifAllGranted>
 </div>
 
@@ -22,10 +22,14 @@
 
 </div>
 <div class="row tamanho">
-
+    <div class="col-xs-3">
     <g:link controller="evento" action="index" >
         <spam class="glyphicon glyphicon-backward"></spam> Eventos
     </g:link>
+    </div>
+    <div class="col-xs-9 text-right">
+        <g:link controller="dots" action="informacao" id="${evento.id}">Dados do Evento</g:link>
+    </div>
 
 </div>
     <!----Corpo-v------------>
@@ -37,7 +41,10 @@
 
     </div>
 </div>
+
 </sec:ifAllGranted>
+
+
 <div class="row">
          <div class="col-xs-12 thumbnail" id="dots">
 

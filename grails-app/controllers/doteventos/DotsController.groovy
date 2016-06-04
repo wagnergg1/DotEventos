@@ -223,12 +223,17 @@ class DotsController {
         dot.imagem = arquivo.bytes
         dot.imagemType = arquivo.contentType
         dot.validate()
-        println(dot.nomeDot)
-        if(!dot.hasErrors()){
-            println("entrou")
-           dot.save(flush: true)
-        }else {
-            println('deu alguma merda')
+           if(!dot.hasErrors()){
+                         println dot.id
+                      dot.save(flush: true)
+                    println ('pai'+pai.id +' filho'+ dot.id)
+
+
+
+
+                        pai.addToFilhos(filho: dot , pai: pai).save()
+
+           }else {println "não salvou"
         }
 
         redirect( controller: "dots", action: "dotsf" ,params: [id:dot.pai.id, evento:  dot.pai.evento.id] )
@@ -288,6 +293,23 @@ class DotsController {
 
        render(template: "listas", model: [listaA: listaA , pai: pai])
     }
+    def informacao(){
 
+        Evento evento = Evento.get(params.id)
+        def pessoaevento = Pessoa_has_Evento.createCriteria().list{
+            eq 'evento', evento
+
+        }
+
+        def dotsLista = Dots.createCriteria().list{
+            eq ('evento', evento)
+            isNull('pai')
+        }
+
+
+
+        render(view: "/evento/informacao" , model: [ evento : evento , pessoas: pessoaevento, dotsroot: dotsLista])
+
+    }
 
 }//fim

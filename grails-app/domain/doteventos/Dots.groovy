@@ -5,12 +5,13 @@ class Dots {
     Date dataCadastro
     Date dataEntrega
     Dots pai
-    Evento evento
+     Evento evento
     TipoDot tipoDot
     byte[] imagem
     String imagemType
-    static hasMany = [listas: ListaAtividades]
-    static belongsTo = [evento : Evento]
+
+    static hasMany = [listas: ListaAtividades , filhos: Filhos  ]
+    static mappedBy =      [ filhos: 'pai']
     static constraints = {
 
         nomeDot nullable: false , blank:  false

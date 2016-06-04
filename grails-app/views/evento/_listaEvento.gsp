@@ -41,12 +41,10 @@
                         <textarea disabled rows="3" CLASS="blockTextareadiv" >${it.descricao} </textarea>
 
                         <div class="btn-group " role="group" style="padding: 5px">
-                                        <sec:ifAllGranted roles='ROLE_ADM'>
+
+                                  <sec:ifAllGranted roles='ROLE_ADM'>
                                 <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#myModal" data-toggle="tooltip" title="Alterar" onclick="getevento('${it.id}')"> <spam class="glyphicon glyphicon-edit"/></button>
                                         </sec:ifAllGranted>
-
-
-
 
                                 <sec:ifAllGranted roles='ROLE_ADM'>
                                 <button type="button" class="btn btn-danger" data-toggle="tooltip" title="Excluir" onclick="delevento('${it.id}')"><spam class="glyphicon glyphicon-remove-circle"></spam></button>

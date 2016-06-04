@@ -103,6 +103,19 @@ function limparFrom(){
 
 }
 
+
+function eventoinfo(id){
+
+    $.ajax({
+        method: "POST",
+        url: "informacao",
+        data: {"id": id},
+    success: function (data){
+        $("#html").html(data)
+
+    }
+})
+}
 //-----------------------------------Eventos ---------------------------------------------------------------------
 
 function retornoSalvarEvento(data){
@@ -579,3 +592,5 @@ function carregarindex(){
         }
     )
 }
+
+//---------------------------mapa-------------

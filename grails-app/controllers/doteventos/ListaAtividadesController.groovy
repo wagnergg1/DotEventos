@@ -1,8 +1,7 @@
 package doteventos
 import grails.plugin.springsecurity.annotation.Secured
 import grails.converters.JSON
-
-
+import concont.*
 import java.text.SimpleDateFormat
 
 class ListaAtividadesController {
@@ -141,11 +140,20 @@ class ListaAtividadesController {
 
     }
 
-    def principal(){
-        Pessoa  user = springSecurityService.currentUser
+    def principal() {
+        Pessoa user = springSecurityService.currentUser
         def evento = Pessoa_has_Evento?.findByPessoa(user)?.evento
 
-        def list = ListaAtividades?.findByResponsavel(user)?.listaObjetos?.asList()
+        // def list2 = ListaAtividades?.findByResponsavel(user)?.listaObjetos?.asList()
+
+        def list = ObjetoLista .createCriteria().list {
+
+            listaAtividades{
+                    eq 'responsavel', user
+                    }
+                order 'dataEntrega', 'asc'
+             }
+
 
 
         render (view: "/index" , model: [listaObj: list, meventos : evento])
@@ -157,10 +165,19 @@ class ListaAtividadesController {
     def carregarindex(){
         Pessoa  user = springSecurityService.currentUser
 
-        def list = ListaAtividades?.findByResponsavel(user)?.listaObjetos?.asList()
+       //def list = ListaAtividades?.findByResponsavel(user)?.listaObjetos?.asList()
 
+        def list = ObjetoLista .createCriteria().list {
 
-        render (template: "/listaAtividades/listaItensuser" , model: [listaObj: list])
+            listaAtividades{
+                eq 'responsavel', user
+
+                            }
+            order 'dataEntrega', 'asc'
+
+        }
+
+                  render (template: "/listaAtividades/listaItensuser" , model: [listaObj: list])
 
 
     }

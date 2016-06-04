@@ -8,9 +8,9 @@
 
 <body>
 <div class="row tamanho text-right ">
-    <a href="/ajuda/indexcolb4" type="button" class="btn btn-primary text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
+    <a href="/ajuda/indexadm6" type="button" class="btn btn-primary text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
     <sec:ifAllGranted roles='ROLE_ADM'>
-        <a href="/#" type="button" class="btn btn-google text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
+        <a href="/ajuda/indexadm9" type="button" class="btn btn-google text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
     </sec:ifAllGranted>
 </div>
 <div class="row">
@@ -25,7 +25,7 @@
 
         <g:if test="${pai.pai}">
 
-            <g:link acontroller="dots" action="dots" id="${pai.paiId}"  params="[evento:pai.evento]" data-toggle="tooltip" title="Dot's" class=" btn right"><spam class="glyphicon glyphicon-backward"></spam> Dot</g:link>
+            <g:link acontroller="dotsf" action="dotsf" id="${pai.paiId}"  params="[evento:pai.evento]" data-toggle="tooltip" title="Dot's" class=" btn right"><spam class="glyphicon glyphicon-backward"></spam> Dot</g:link>
 
         </g:if><g:else>
         <g:link acontroller="dots" action="index" id="${evento.id}"   data-toggle="tooltip" title="Dot's" class=" btn right"><spam class="glyphicon glyphicon-backward"></spam> Dot</g:link>

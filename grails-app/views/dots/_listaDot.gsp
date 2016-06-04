@@ -24,7 +24,7 @@
                     <g:formatDate  format="dd-MM-yyyy HH:mm" date="${it.dataEntrega}"/>
                 </H4>
                 <div>
-                <img src="${resource(dir:"images",file: "listas.png")}" class="text-center" WIDTH="45px" >
+
                 </div>
                 <div class="btn-group " role="group" style="padding: 5px">
                     <sec:ifAllGranted roles='ROLE_ADM'>
