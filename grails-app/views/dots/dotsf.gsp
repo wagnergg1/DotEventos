@@ -7,12 +7,7 @@
 </head>
 
 <body>
-<div class="row tamanho text-right ">
-    <a href="/ajuda/indexadm6" type="button" class="btn btn-primary text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
-    <sec:ifAllGranted roles='ROLE_ADM'>
-        <a href="/ajuda/indexadm9" type="button" class="btn btn-google text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
-    </sec:ifAllGranted>
-</div>
+
 <div class="row">
 
     <div class="fundo text-center  ">
@@ -20,9 +15,14 @@
         <h1 class="text-primary">${pai.nomeDot}</h1>
         <small class=" text-primary"> <g:formatDate format="dd-MM-yyyy HH:mm" date="${pai.dataEntrega}"/>$</small>
     </div> </div>
-
+<div class="row tamanho text-right ">
+    <a href="/ajuda/indexadm6" type="button" class="btn btn-primary text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
+    <sec:ifAllGranted roles='ROLE_ADM'>
+        <a href="/ajuda/indexadm9" type="button" class="btn btn-google text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
+    </sec:ifAllGranted>
+</div>
 <div class="row tamanho">
-
+    <div class="col-xs-3">
         <g:if test="${pai.pai}">
 
             <g:link acontroller="dotsf" action="dotsf" id="${pai.paiId}"  params="[evento:pai.evento]" data-toggle="tooltip" title="Dot's" class=" btn right"><spam class="glyphicon glyphicon-backward"></spam> Dot</g:link>
@@ -31,9 +31,12 @@
         <g:link acontroller="dots" action="index" id="${evento.id}"   data-toggle="tooltip" title="Dot's" class=" btn right"><spam class="glyphicon glyphicon-backward"></spam> Dot</g:link>
 
     </g:else>
-
-
 </div>
+
+
+<div class="col-xs-9 text-right">
+    <g:link controller="dots" action="informacao" id="${evento.id}">Mapa</g:link>
+</div></div>
 <!-----------corpo-->
         <div class="row tamanho">
 

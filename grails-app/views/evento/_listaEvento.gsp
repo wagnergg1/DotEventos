@@ -40,27 +40,27 @@
 
                         <textarea disabled rows="3" CLASS="blockTextareadiv" >${it.descricao} </textarea>
 
-                        <div class="btn-group " role="group" style="padding: 5px">
-
-                                  <sec:ifAllGranted roles='ROLE_ADM'>
-                                <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#myModal" data-toggle="tooltip" title="Alterar" onclick="getevento('${it.id}')"> <spam class="glyphicon glyphicon-edit"/></button>
-                                        </sec:ifAllGranted>
-
-                                <sec:ifAllGranted roles='ROLE_ADM'>
-                                <button type="button" class="btn btn-danger" data-toggle="tooltip" title="Excluir" onclick="delevento('${it.id}')"><spam class="glyphicon glyphicon-remove-circle"></spam></button>
-                                     </sec:ifAllGranted>
-                        </div>
 
 
 
 
-                        <div class="row">
-                                <div class="col-xs-12">
-                                <g:link controller="dots" action="index" id="${it.id}" data-toggle="tooltip" title="Dot's" class=" btn right"><spam class="glyphicon glyphicon-share"></spam> Abrir</g:link>
-                                </div>
-                        </div>
+
+
 
         </div>
+                <div class="text-center">
+                <div class="btn-group right"  style="padding: 5px">
 
+                <sec:ifAllGranted roles='ROLE_ADM'>
+                        <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#myModal" data-toggle="tooltip" title="Alterar" onclick="getevento('${it.id}')"> <spam class="glyphicon glyphicon-edit"/></button>
+                </sec:ifAllGranted>
+
+                <sec:ifAllGranted roles='ROLE_ADM'>
+                        <button type="button" class="btn btn-danger" data-toggle="tooltip" title="Excluir" onclick="delevento('${it.id}')"><spam class="glyphicon glyphicon-remove-circle"></spam></button>
+                </sec:ifAllGranted>
+                        <g:link controller="dots" action="index" id="${it.id}" data-toggle="tooltip" title="Dot's" class=" btn btn-primary "><spam class="glyphicon glyphicon-share"></spam> </g:link>
+
+                </div>
+                </div>
         </div>
 </g:each>

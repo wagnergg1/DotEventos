@@ -226,12 +226,11 @@ class DotsController {
            if(!dot.hasErrors()){
                          println dot.id
                       dot.save(flush: true)
-                    println ('pai'+pai.id +' filho'+ dot.id)
+                        if(!params.id){
+                            pai.addToFilhos(filho: dot , pai: pai).save()
+                        }
 
 
-
-
-                        pai.addToFilhos(filho: dot , pai: pai).save()
 
            }else {println "não salvou"
         }

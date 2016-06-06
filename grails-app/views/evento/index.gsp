@@ -5,12 +5,6 @@
 
     <asset:stylesheet src="meuscss.css"/>
 </head>
-<div class="row tamanho text-right ">
-    <a href="/ajuda/indexcolb1" type="button" class="btn btn-primary text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
-    <sec:ifAllGranted roles='ROLE_ADM'>
-        <a href="/ajuda/indexadm4" type="button" class="btn btn-google text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
-    </sec:ifAllGranted>
-</div>
 
         <div class="row">
             <div class="col-xs-12   fundo ">
@@ -18,7 +12,12 @@
             </div>
 
             <!----Corpo-v------------>
-
+            <div class="row tamanho text-right ">
+                <a href="/ajuda/indexcolb1" type="button" class="btn btn-primary text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
+                <sec:ifAllGranted roles='ROLE_ADM'>
+                    <a href="/ajuda/indexadm4" type="button" class="btn btn-google text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
+                </sec:ifAllGranted>
+            </div>
         </div>
             <div class="row">
                 <div id="divlistaevento" class="col-xs12" style="padding: 10px;">

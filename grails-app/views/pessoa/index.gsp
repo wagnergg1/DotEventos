@@ -7,18 +7,19 @@
 
 
 </head>
+        <div class="row">
+          <div class="col-xs-12  text-right  fundo ">
+
+                           <h2 class="text-center text-primary">Usuário</h2>
+
+            </div></div>
+
 <div class="row tamanho text-right ">
     <a href="/#" type="button" class="btn btn-primary text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
     <sec:ifAllGranted roles='ROLE_ADM'>
         <a href="/ajuda/indexadm1" type="button" class="btn btn-google text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
     </sec:ifAllGranted>
 </div>
-
-          <div class="col-xs-12  text-right  fundo">
-
-                           <h2 class="text-center text-primary">Usuário</h2>
-
-            </div>
 
     <div id="divFormulario1"></div>
 

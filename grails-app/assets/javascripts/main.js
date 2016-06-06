@@ -1,5 +1,15 @@
+$('#savar').click(function(){
 
+    html2canvas($('#mapa'),
+        {
+            onrendered: function (canvas) {
+                var img = canvas.toDataURL("image/png");
+                  window.open(img);
+                window.location.reload()
+            }
+        });
 
+});
 
 function carregarListaUsuarios(){
     $.ajax({

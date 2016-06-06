@@ -15,9 +15,9 @@
 
 .divevento{
 
-    padding-top: 10px;
-    width: 300px;
-    height:370px;
+
+    width: 112px;
+    height:350px;
     border-radius:20px;
     background-size: 100% 100%;
 
@@ -31,13 +31,24 @@
 
 
 }
-.botaoDot{
-    float:right;
-    font-size: large;
-    padding:5px;
-    width: 60px;
-    height: 30px;
-    border-radius: 9px;
+
+.divmapa{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95px;
+    height:95px;
+
+
+
+}
+.mapimagem{
+
+    height:auto;
+    position: relative;
+
+
+
 }
 .blockTextareadiv{
     resize: none;

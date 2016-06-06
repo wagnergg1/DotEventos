@@ -7,87 +7,77 @@
 
 <!doctype html>
 <html>
+
 <head>
+
     <meta name="layout" content="padrao"/>
-
     <asset:stylesheet src="meuscss.css"/>
-
+    <asset:stylesheet src="jquery.jOrgChart.css"/>
+    <asset:stylesheet src="custom.css"/>
+    <asset:stylesheet src="prettify.css"/>
+    <asset:stylesheet src="style.css"/>
+    <asset:javascript src="jquery.min.js"/>
+    <asset:javascript src="jquery.jOrgChart.js"/>
+    <asset:javascript src="jquery-ui.min.js"/>
+    <asset:javascript src="html2canvas.js"/>
+    <asset:javascript src="mapa.js"/>
 </head>
 
 <body>
-<div class="row tamanho text-right ">
-    <a href="/ajuda/indexcolb1" type="button" class="btn btn-primary text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
-    <sec:ifAllGranted roles='ROLE_ADM'>
-        <a href="/ajuda/indexadm4" type="button" class="btn btn-google text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
-    </sec:ifAllGranted>
-</div>
+
 
 <div class="row">
-    <div class="col-xs-12   fundo ">
+    <div class="col-xs-12  ">
         <h2 class="text-primary text-center">${evento.nome}</h2>
     </div>
 
 </div>
 <div class="row tamanho">
-    <g:link acontroller="dots" action="index" id="${evento.id}"   data-toggle="tooltip" title="Dot's" class=" btn right"><spam class="glyphicon glyphicon-backward"></spam> Dot</g:link>
+     <button id="savar" class="btn btn-primary right"><spam class="glyphicon glyphicon-save"> </spam></button>
 </div>
 
-<div >
 
-        <g:render template="/evento/dados"  model="[pessoas: pessoas]"></g:render>
+   <ul id="org" style="display: none" >
+       <li>
+
+           <g:link controller="dots" action="index" id="${evento.id}"> ${evento.nome}</g:link>
+            <DIV class="divmapa " >
+           <g:if test="${evento.imagem}">
+               <img style="border-radius: 20px" src="/evento/imagemEvento/${evento.id}" class="img-responsive mapimagem " />
+           </g:if><g:else>
+           <img src="${resource(dir:"images",file: "dotnome.png")}" class="text-center img-responsive mapimagem"  >
+       </g:else>
+           </DIV >
+            <ul>
+            <g:each in="${dotsroot}" var="raiz">
+               <li>
+                   <g:link absolute="true" controller="dots" action="dotsf" id="${raiz.id}"  params="[evento:raiz.evento]" >${raiz.nomeDot}</g:link>
 
 
-</div>
+                   <p><g:formatDate  format="dd-MM-yyyy HH:mm" date="${raiz.dataEntrega}"/></p>
 
-<div>
-   <g:each in="${dotsroot}" var="raiz">
+                   <div class="divmapa ">
+                   <g:if test="${raiz.imagem}">
+                       <img style="border-radius: 20px" src="/dots/imagemDots/${raiz.id}" class="text-center img-responsive mapimagem "/>
+                   </g:if><g:else>
+                   <img src="${resource(dir:"images",file: "dotnome.png")}" class="text-center img-responsive mapimagem"  >
+               </g:else></div>
+            <g:render template="/dots/node" model="[raiz: raiz]"></g:render>
+                </li>
 
-    <g:render template="/dots/node" model="[raiz: raiz]"></g:render>
-
-   </g:each>
+            </g:each>
+           </ul>
+       </li>
+   </ul>
 </div>
 
 <div class="row">
-    <div id="meuDiagrama"></div>
+    <div id="mapa"   class="fundo col-xs-12" style=" overflow:scroll"  ></div>
 
 </div>
 
-<script type ="text/javascript">
-    var graph = new joint.dia.Graph;
-
-    var paper = new joint.dia.Paper({
-        el: $('#meuDiagrama'),
-        width: 600,
-        height: 200,
-        model: graph,
-        gridSize: 1
-    });
-
-    var rect = new joint.shapes.basic.Rect({
-        position: { x: 100, y: 30 },
-        size: { width: 100, height: 30 },
-
-        attrs: { rect: { fill: 'blue' }, text: { text: '${evento.nome}', fill: 'white' } }
-    });
-
-    var rect2 = rect.clone();
-    rect2.translate(200);
-
-    var rect3 = rect.clone();
-    rect3.translate(400);
-
-    var link = new joint.dia.Link({
-        source: { id: rect.id },
-        target: { id: rect2.id }
-    });
-    var link2 = new joint.dia.Link({
-        source: { id: rect.id },
-        target: { id: rect3.id }
-    });
-
-    graph.addCells([rect, rect2,rect3, link,link2]);
-</script>
 </body>
+
 
 
 </html>

@@ -1,13 +1,28 @@
-
-        <ul>
-        <g:each  in ="${raiz.filhos.filho}" >
-
-          <li>
-              ${it.nomeDot}
-              ${it.pai.nomeDot}
-             <g:render template="/dots/node" model="${[raiz : it]}"></g:render>
+<ul>
+<g:if test="${raiz.filhos.filho}">
+                     <g:each  in ="${raiz.filhos.filho}" >
+                        <li>
+                            <g:link absolute="true" controller="dots" action="dotsf" id="${it.id}"  params="[evento:it.evento]" >${it.nomeDot}</g:link>
 
 
-          </li>
+                          <p><g:formatDate  format="dd-MM-yyyy HH:mm" date="${it.dataEntrega}"/></p>
+                           <div class="divmapa">
+                            <g:if test="${it.imagem}">
+                                <img style="border-radius: 20px" src="/dots/imagemDots/${it.id}" class="text-center img-responsive mapimagem " />
+                            </g:if><g:else>
 
-        </g:each></ul>
+
+                            <img src="${resource(dir:"images",file: "dotnome.png")}" class="text-center img-responsive mapimagem "  >
+                        </g:else>
+                         </div>
+
+
+                                <g:render template="/dots/node" model="${[raiz : it]}"></g:render>
+
+
+
+
+                        </li>
+                     </g:each>
+</g:if>
+                 </ul>

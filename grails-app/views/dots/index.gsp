@@ -7,12 +7,7 @@
 </head>
 
 <body>
-<div class="row tamanho text-right ">
-    <a href="/ajuda/indexcolb3" type="button" class="btn btn-primary text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
-    <sec:ifAllGranted roles='ROLE_ADM'>
-        <a href="/ajuda/indexadm7" type="button" class="btn btn-google text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
-    </sec:ifAllGranted>
-</div>
+
 
 <div class="row">
             <div class="fundo ">
@@ -21,6 +16,21 @@
 
 
 </div>
+<div class="row tamanho text-right ">
+    <div class="col-xs-11">
+    <g:if test="${evento.icadastrado}">
+        <div class="progress">
+
+            <div class="progress-bar progress-bar-warning " role="progressbar" aria-valuenow="${evento.finalizados/evento.icadastrado*100}" aria-valuemin="0" aria-valuemax="100"  style="width: ${evento.finalizados/evento.icadastrado*100}%;">
+                <span class="text-success text-lowercase">${Math.ceil((evento.finalizados/evento.icadastrado)*100)}% Completo</span>
+            </div>
+
+        </div></g:if></div>
+    <a href="/ajuda/indexcolb3" type="button" class="btn btn-primary text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
+    <sec:ifAllGranted roles='ROLE_ADM'>
+        <a href="/ajuda/indexadm7" type="button" class="btn btn-google text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
+    </sec:ifAllGranted>
+</div>
 <div class="row tamanho">
     <div class="col-xs-3">
     <g:link controller="evento" action="index" >
@@ -28,7 +38,7 @@
     </g:link>
     </div>
     <div class="col-xs-9 text-right">
-        <g:link controller="dots" action="informacao" id="${evento.id}">Dados do Evento</g:link>
+        <g:link controller="dots" action="informacao" id="${evento.id}">Mapa</g:link>
     </div>
 
 </div>
