@@ -1,6 +1,6 @@
 
     <div id="divlistaitem">
-    <div class="col-xs-12 panel panel-primary" >
+    <div class="col-xs-12 panel panel-primary table-responsive " >
         <div class="panel-heading">
       <h4 class="text-center">Minha Lista </h4>
      </div>
@@ -11,7 +11,7 @@
         <th>Evento</th>
         <th>Item:</th>
         <th>Data Entrega:</th>
-        <th>Responsável</th>
+
         <th class="text-right">Ação &nbsp;   </th>
 
 
@@ -23,7 +23,6 @@
         <td>${l.nomeObjeto}</td>
 
         <td><g:formatDate  format="dd-MM-yyyy HH:mm" date="${l.dataEntrega}"/></td>
-        <td>${l?.listaAtividades.responsavel.nome}</td>
         <td class="text-right">
 
         &nbsp;&nbsp;

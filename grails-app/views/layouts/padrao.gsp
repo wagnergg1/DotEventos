@@ -22,7 +22,7 @@
     <g:layoutHead/>
 </head>
 
-<body>
+<body class="fundototal">
 
 
 <div class="nav navbar navbar-default navbar-static-top " role="navigation">

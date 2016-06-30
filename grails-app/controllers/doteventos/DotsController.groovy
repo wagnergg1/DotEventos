@@ -250,14 +250,24 @@ class DotsController {
         def ret=[:]
         Dots dot = Dots.get(params.id)
         Evento evento = Evento.get(params.e)
+          def pai = dot.pai
+
 
         try {
-            dot.delete(flush: true)
-            ret["ret"]="1"
+                  if(pai){
+                   println(pai)
+                    Filhos f = Filhos.findByFilho(dot)
+                    f.delete(flush: true)
+                    ret["ret"]="1"
+                }
+
+           dot.delete(flush: true)
+
 
         } catch (Exception ex) {
 
         }
+
         render ret as JSON
 
     }

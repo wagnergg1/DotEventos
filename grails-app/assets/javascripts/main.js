@@ -256,9 +256,8 @@ function deldot(id,e){
                 data: {"id": id, "e":e},
                 success: function (data) {
                     console.log(data)
-                    carregardot(e)
-
-                }
+                    location.reload()
+                                  }
             }
 
 
@@ -268,7 +267,7 @@ function deldot(id,e){
 function carregardot(e){
     $.ajax({
             method: "POST",
-            url :   "/dots/listadotindex",
+            url :   "/dots/",
             data : {"id":e },
             success: function(data){
                 $("#dots").html(data)

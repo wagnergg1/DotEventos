@@ -26,9 +26,13 @@
                     <td>${usuario.tipoPessoa.descricao}</td>
 
                     <td class="text-right">
-
+                            <g:if test="${!usuario.listaAtividade}">
                          <button type="button" class="btn btn-danger right" data-toggle="tooltip" title="Remover" data-plancement="left" onclick="removecolab(${usuario.id},${evento.id})"> <span class="glyphicon glyphicon-remove-circle"> </span></button>
+                        </g:if>
+                        <g:else>
+                            <button type="button" class="btn btn-github right" data-toggle="tooltip" disabled title="Remover" data-plancement="left"> <span class="glyphicon glyphicon-remove-circle"> </span></button>
 
+                        </g:else>
                     </td>
 
 

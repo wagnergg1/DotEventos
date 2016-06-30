@@ -42,25 +42,31 @@
 
 
 
+                        <div class="text-center">
+                                <div class="btn-group right"  style="padding: 5px">
 
+                                        <sec:ifAllGranted roles='ROLE_ADM'>
+                                                <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#myModal" data-toggle="tooltip" title="Alterar" onclick="getevento('${it.id}')"> <spam class="glyphicon glyphicon-edit"/></button>
+                                        </sec:ifAllGranted>
+
+                                        <sec:ifAllGranted roles='ROLE_ADM'>
+                                                <g:if test="${!it?.dots ||!it?.pessoaEvento.pessoa}">
+                                                        <button type="button" class="btn btn-danger" data-toggle="tooltip" title="Excluir" onclick="delevento('${it.id}')"><spam class="glyphicon glyphicon-remove-circle"></spam></button>
+                                                </g:if><g:else>
+                                                <button type="button" class="btn btn-github" data-toggle="tooltip" title="Excluir" disabled><spam class="glyphicon glyphicon-remove-circle"></spam></button>
+                                                </g:else>
+
+                                        </sec:ifAllGranted>
+
+                                </div>
+                                <g:link controller="dots" action="index" id="${it.id}" data-toggle="tooltip" title="Dot's" type="button" class=" btn btn-primary "><spam class="glyphicon glyphicon-share"> Tarefas</spam> </g:link>
+
+                        </div>
 
 
 
 
         </div>
-                <div class="text-center">
-                <div class="btn-group right"  style="padding: 5px">
 
-                <sec:ifAllGranted roles='ROLE_ADM'>
-                        <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#myModal" data-toggle="tooltip" title="Alterar" onclick="getevento('${it.id}')"> <spam class="glyphicon glyphicon-edit"/></button>
-                </sec:ifAllGranted>
-
-                <sec:ifAllGranted roles='ROLE_ADM'>
-                        <button type="button" class="btn btn-danger" data-toggle="tooltip" title="Excluir" onclick="delevento('${it.id}')"><spam class="glyphicon glyphicon-remove-circle"></spam></button>
-                </sec:ifAllGranted>
-                        <g:link controller="dots" action="index" id="${it.id}" data-toggle="tooltip" title="Dot's" class=" btn btn-primary "><spam class="glyphicon glyphicon-share"></spam> </g:link>
-
-                </div>
-                </div>
         </div>
 </g:each>

@@ -10,12 +10,18 @@
 
 <div class="row">
 
-    <div class="fundo text-center  ">
+    <div class=" text-center fundo ">
 
         <h1 class="text-primary">${pai.nomeDot}</h1>
         <small class=" text-primary"> <g:formatDate format="dd-MM-yyyy HH:mm" date="${pai.dataEntrega}"/>$</small>
-    </div> </div>
-<div class="row tamanho text-right ">
+    </div>
+</div>
+<div class="row  text-right ">
+   <p></p>
+
+    <div class="col-xs-12">
+
+    </div>
     <a href="/ajuda/indexadm6" type="button" class="btn btn-primary text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
     <sec:ifAllGranted roles='ROLE_ADM'>
         <a href="/ajuda/indexadm9" type="button" class="btn btn-google text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
@@ -33,12 +39,8 @@
     </g:else>
 </div>
 
-
-<div class="col-xs-9 text-right">
-    <g:link controller="dots" action="informacao" id="${evento.id}">Mapa</g:link>
-</div></div>
 <!-----------corpo-->
-        <div class="row tamanho">
+        <div class="row">
 
 
         <div class="col-xs-12 thumbnail"  id="lista">
@@ -47,17 +49,7 @@
             <g:render template="listas" model="[listaA:listaA]"></g:render>
         </div>
     </div>
-
-<div class="row text-center">
-   <div class="col-xs-12 ">
-
-    <hr/></div>
-
-</div>
-
-
-
-        <div class="row tamanho">
+        <div class="row">
             <div class="col-xs-12 thumbnail" id="dotlista">
                 <g:render template="listaDot"></g:render>
             </div>

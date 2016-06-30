@@ -16,7 +16,7 @@
 
 
 </div>
-<div class="row tamanho text-right ">
+<div class="row text-right ">
     <div class="col-xs-11">
     <g:if test="${evento.icadastrado}">
         <div class="progress">
@@ -31,15 +31,14 @@
         <a href="/ajuda/indexadm7" type="button" class="btn btn-google text-right" data-toggle="toggle" title="Ajuda"><spam class="glyphicon glyphicon-question-sign"> </spam></a>
     </sec:ifAllGranted>
 </div>
-<div class="row tamanho">
+<div class="row">
     <div class="col-xs-3">
-    <g:link controller="evento" action="index" >
+    <g:link controller="evento" type="button" class="btn btn-primary " action="index" >
         <spam class="glyphicon glyphicon-backward"></spam> Eventos
     </g:link>
+        <p></p>
     </div>
-    <div class="col-xs-9 text-right">
-        <g:link controller="dots" action="informacao" id="${evento.id}">Mapa</g:link>
-    </div>
+
 
 </div>
     <!----Corpo-v------------>

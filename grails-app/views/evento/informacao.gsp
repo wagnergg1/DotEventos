@@ -15,12 +15,12 @@
     <asset:stylesheet src="jquery.jOrgChart.css"/>
     <asset:stylesheet src="custom.css"/>
     <asset:stylesheet src="prettify.css"/>
-    <asset:stylesheet src="style.css"/>
     <asset:javascript src="jquery.min.js"/>
+    <asset:javascript src="mapa.js"/>
+    <asset:javascript src="prettify.js"/>
     <asset:javascript src="jquery.jOrgChart.js"/>
     <asset:javascript src="jquery-ui.min.js"/>
     <asset:javascript src="html2canvas.js"/>
-    <asset:javascript src="mapa.js"/>
 </head>
 
 <body>
@@ -32,8 +32,9 @@
     </div>
 
 </div>
-<div class="row tamanho">
-     <button id="savar" class="btn btn-primary right"><spam class="glyphicon glyphicon-save"> </spam></button>
+<div class="row text-right">
+
+    <button id="savar" class="btn btn-primary right"><spam class="glyphicon glyphicon-save"> </spam></button>
 </div>
 
 
@@ -71,10 +72,11 @@
    </ul>
 </div>
 
-<div class="row">
-    <div id="mapa"   class="fundo col-xs-12" style=" overflow:scroll"  ></div>
 
-</div>
+	
+    <div id="mapa" style="overflow-y: scroll;"></div>
+
+
 
 </body>
 
